@@ -1,0 +1,41 @@
+<div class="main-wrapper">
+  <div class="container">
+    <div class="login-panel" style="width:1000px">
+      <h2 class="title">Login</h2>
+
+        <form #loginForm="ngForm">
+          <table>
+          <tr><td><label>Email address</label></td></tr>
+
+          <tr><td><input  type="email" [uiInput] name="email" [(ngModel)]="login.emailId" required #username="ngModel" email style="width:300px;"></td>
+          <td ><span class="help-block col-sm-offset-4" *ngIf="username.invalid && username.touched" style=" font-size:13px;color:red">
+             *Please Enter Valid EmailId
+          </span></td>
+        </tr>
+        <tr><td><label>Password</label></td></tr>
+        <tr><td><input type="password" [uiInput] name="password" [(ngModel)]="login.password"  #password="ngModel" required></td>
+          
+          <td style="width:300px;"><span class="help-block col-sm-offset-4" *ngIf="password.invalid && password.touched" style=" font-size:13px;color:red">
+               *Password should be of minimum length 8 characters
+           </span></td>
+           </tr>
+          <div class="forgotten-password">
+              <a href="">Forgot password?</a>
+            </div>
+          <div class="login-box">
+              <button class="login" [disabled]="loginForm.invalid" (click)="validateLogin()">Sign In</button>
+            </div>
+          </table>
+        </form>
+        
+        
+        <div *ngIf="validLogin"  ></div>
+    </div>
+    <div class="login-panel">
+      <h2 class="title">New to Capstore?</h2>
+      <div class="login-box">
+        <button class="login1" routerLink="../sign-up">Register Now!</button>
+      </div>
+    </div>
+  </div>
+</div>
