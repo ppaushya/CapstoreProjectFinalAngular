@@ -5,6 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { KitOverlayModule } from '@ngx-kit/core';
 import { UiModule } from '../ui/ui.module';
 import { FormsModule } from '@angular/forms';
+import { SlidermainpageComponent } from '../slidermainpage/slidermainpage.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms';
   ],
   declarations: [
     HomePageComponent,
+    SlidermainpageComponent,
     
     
   ],
