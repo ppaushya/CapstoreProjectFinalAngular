@@ -11,8 +11,9 @@ import { RouterModule, Router } from '@angular/router';
 export class SignInPageComponent implements OnInit {
   
   login:Login=new Login();
-  
+  message:string;
   validLogin:Login=new Login();
+  invalid:boolean=false;
   validEmail:boolean=false;
   constructor(private _service:SignInPageService, private _router:Router) { }
 
@@ -23,7 +24,7 @@ export class SignInPageComponent implements OnInit {
   {
     this._service.validateEmail(this.login).subscribe(
       validLogin=>{
-        this.login.userTypes="MERCHANT";
+        this.login=validLogin;
       if(validLogin.userTypes=="CUSTOMER")
       {
         this._router.navigate(['/home'])
@@ -31,6 +32,13 @@ export class SignInPageComponent implements OnInit {
       else if(validLogin.userTypes=="MERCHANT")
       {
         this._router.navigate(['/merchant'])
+      }
+      else if(validLogin==null)
+      {
+        this._router.navigate(['/sign-in']);
+        this.invalid=true;
+        this.message="Invalid EmailId or Password";
+
       }
     
 

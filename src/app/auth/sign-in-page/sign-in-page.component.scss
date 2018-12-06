@@ -75,7 +75,7 @@ input {
   cursor: pointer;
   font-weight: bold;
   height: 40px;
-  width: 150px;
+  width: 120px;
   border-radius: 5px;
   // padding: 0 $grid*3;
   // text-transform: uppercase;
@@ -101,4 +101,9 @@ input {
   .login-panel{
     width: 100%;
   }
+}
+
+.forgotten-password a
+{
+  color:blue;
 }

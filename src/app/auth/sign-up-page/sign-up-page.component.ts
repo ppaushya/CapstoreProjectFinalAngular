@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Customer } from '../../models/customer';
+import { Address } from '../../models/address';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -6,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-up-page.component.scss']
 })
 export class SignUpPageComponent implements OnInit {
-  inputModel: any;
+  
+  customer:Customer=new Customer();
+  confirmPassword:string="";
 
-  constructor() { }
+  constructor() { 
+    this.customer.address=new Address();
+
+  }
 
   ngOnInit() {
   }

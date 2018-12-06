@@ -15,6 +15,7 @@ import { SliderModule } from 'angular-image-slider';
 import { TrackComponent } from './track/track.component';
 import { RouterModule } from '@angular/router';
 import { HomePageComponent } from './home/home-page/home-page.component';
+import { ProductService } from './header/main-header/main-header.service';
 
 
 export function hammerConfigFactory() {
@@ -53,6 +54,7 @@ export function hammerConfigFactory() {
       provide: HAMMER_GESTURE_CONFIG,
       useFactory: hammerConfigFactory(),
     },
+    ProductService
   ],
   bootstrap: [AppComponent],
 })

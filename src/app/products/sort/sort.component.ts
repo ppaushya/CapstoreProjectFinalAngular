@@ -9,19 +9,19 @@ export class SortComponent implements OnInit {
 
   options = [
     {
-      label: 'Option 1',
+      label: 'Price:Low to High',
       value: 1,
     },
     {
-      label: 'Option 2',
+      label: 'Price:High to Low',
       value: 2,
     },
     {
-      label: 'Option 3',
+      label: 'Range',
       value: 3,
     },
     {
-      label: 'Option 4',
+      label: 'Most Viewed',
       value: 4,
     },
   ];

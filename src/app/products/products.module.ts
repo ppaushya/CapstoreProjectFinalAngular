@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UiModule } from '../ui/ui.module';
 import { CardComponent } from './card/card.component';
-import { FiltersComponent } from './filters/filters.component';
 import { ListPageComponent } from './list-page/list-page.component';
 
 import { ProductsRoutingModule } from './products-routing.module';
@@ -20,7 +19,6 @@ import { ViewPageComponent } from './view-page/view-page.component';
   declarations: [
     ListPageComponent,
     ViewPageComponent,
-    FiltersComponent,
     SortComponent,
     CardComponent,
   ],

@@ -1,13 +1,15 @@
 <div class="top-bar">
   <div class="main-wrapper">
+      <a class="nav-link" routerLink="/"><img src="../../../assets/p1-1.jpg" alt="Smiley face" width="42" height="42"></a>
+      
     <div class="search" >
        
-      <input type="text"  placeholder="Search for a brand or product…" [(ngModel)]="inputModel">
+      <input type="text"  placeholder="Search for product" [(ngModel)]="listFilter">
       <button>
         <kit-icon [name]="'search'" size="20px"></kit-icon>
       </button>
     </div>
-    <div  align= "center" routerLink="/">CapStore</div>&nbsp;&nbsp;
+    <!-- <div  align= "center" routerLink="/">Welcome to Online shoping</div>&nbsp;&nbsp; -->
     <div class="account">
       <a routerLink="/auth/sign-in">
         <kit-icon [name]="'avatar'" size="25px"></kit-icon>
@@ -17,9 +19,4 @@
       </a>
     </div>
   </div>
-</div>
-<div class="head">
-</div>
-<div class="navigation">
-  <app-main-menu></app-main-menu>
 </div>

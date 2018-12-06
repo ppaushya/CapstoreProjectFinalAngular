@@ -2,6 +2,7 @@ export interface Product {
   id: number;
   title: string;
   description: string;
+  category: string;
   picture: string;
   price: number;
   sale: number;
@@ -13,3 +14,4 @@ export interface ProductPhoto {
   full: string;
   description: string;
 }
+

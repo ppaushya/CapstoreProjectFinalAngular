@@ -1,4 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { Product } from '../../data/meta';
+import { ProductService } from './main-header.service';
 
 @Component({
   selector: 'app-main-header',
@@ -6,16 +8,34 @@ import { Component, ElementRef, OnInit } from '@angular/core';
   styleUrls: ['./main-header.component.scss'],
 })
 export class MainHeaderComponent implements OnInit {
-  inputModel: any;
+ // inputModel: any;
 
   displayMenu = false;
 
   menuAnchor: any;
 
-  constructor(public el: ElementRef) {
+  
+  _listFilter:string;
+   //filteredProducts: IProduct[];
+  products: Product[]=[]
+  
+
+  constructor(public el: ElementRef,private _productService: ProductService) {
   }
 
   ngOnInit() {
     this.menuAnchor = this.el.nativeElement;
+    this.products= this._productService.getProducts();
+  
   }
+  get listFilter() :string{
+    return this._listFilter;
+}
+set listFilter(value:string) {
+    this._listFilter=value;
+
+    this._productService.performFilter(this.listFilter);
+
+}
+
 }

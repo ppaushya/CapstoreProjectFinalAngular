@@ -22,6 +22,7 @@ export class ViewPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     this.route.params.subscribe(params => {
       this.product = this.data.products.find(p => p.id === parseInt(params.id, 10));
       this.recent = this.data.products.slice(0, 4);

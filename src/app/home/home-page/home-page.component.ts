@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../../data/meta';
+import { ProductService } from '../../header/main-header/main-header.service';
 
 @Component({
   selector: 'app-home-page',
@@ -6,11 +8,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
-  public imagesUrl;
+  products:Product[];
+  filteredProducts:Product[];
+  searchTerm: string;
 
-  constructor(){
-    
+  public imagesUrl;
+  constructor(private _productService: ProductService){
+    this.products= this._productService.getProducts();
+    this.filteredProducts=this.products;
+    this._productService.getPerformFilter().subscribe(
+      serach => {
+        this.searchTerm = serach['text'];
+        this.filteredProducts=this.searchTerm ? this.performFilter(this.searchTerm):this.products;
+      }
+    );
+   
   }
+
+
+  performFilter(filterBy:string):any []{
+    filterBy=filterBy.toLocaleLowerCase();
+    return this.products.filter((product:Product)=>
+     product.title.toLocaleLowerCase().indexOf(filterBy)!==-1 ||product.description.toLocaleLowerCase().indexOf(filterBy)!==-1 ||product.category.toLocaleLowerCase().indexOf(filterBy)!==-1);
+}
   ngOnInit() {
     this.imagesUrl = [
       'http://www.telegraph.co.uk/content/dam/motoring2/2015/12/07/01-Kia-Sportage-front-xlarge_trans_NvBQzQNjv4BqrWYeUU_H0zBKyvljOo6zlkYMapKPjdhyLnv9ax6_too.jpg',
