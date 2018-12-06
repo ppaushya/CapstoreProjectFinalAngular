@@ -1,4 +1,10 @@
-<h1>Angular Bot</h1>
+<div>
+    
+      <button class="button"><a [routerLink]="['/home']"><span>Home</span></a></button>
+       
+  </div>
+<div id="bot">
+<h1>Live Chat</h1>
 
 <ng-container *ngFor="let message of messages | async">
 
@@ -15,4 +21,6 @@
 
 <input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text">
 
-<button (click)="sendMessage()">Send</button>
+<button (click)="sendMessage()" class="send"><span>Send</span></button>
+
+</div>
