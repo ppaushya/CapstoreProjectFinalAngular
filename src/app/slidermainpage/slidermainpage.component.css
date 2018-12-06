@@ -18,11 +18,11 @@ default width = 800/5 = 160px;
 */
 
 .accordian {
-	width: 805px; height: 320px;
+	width: 900px; height: 320px;
 	overflow: hidden;
 	
 	/*Time for some styling*/
-	margin: 100px auto;
+	margin: 0px auto;
 	box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
 	-webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
 	-moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
