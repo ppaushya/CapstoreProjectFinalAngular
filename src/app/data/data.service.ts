@@ -60,7 +60,7 @@ export class DataService {
       id: 3,
       title: 'Women\'s Autumn Insulated Snowboard Jacket',
       description: 'The Jacket is tailored to fit your needs.',
-      category: 'clothing',
+      category: 'healthcare',
       picture: '/assets/p3-1.jpg',
       price: 90,
       sale: 68,
@@ -81,7 +81,7 @@ export class DataService {
       id: 4,
       title: 'Burton Women\'s Expedition 1/4 Zip Base Layer Top',
       description: 'Built-in Stretch 360° for rider-friendly mobility, and zip-venting to regulate active body temps.',
-      category: 'clothing',
+      category: 'healthcare',
       picture: '/assets/p4-1.jpg',
       price: 79,
       sale: 55,
@@ -102,7 +102,7 @@ export class DataService {
       id: 5,
       title: 'Nils Women\'s Lucy Print Leggings',
       description: 'The are heavyweight, fleece backed, body hugging baselayer that will move with you down the slopes. ',
-      category: 'clothing',
+      category: 'healthcare',
       picture: '/assets/p5-1.jpg',
       price: 125,
       sale: 109,
@@ -123,7 +123,7 @@ export class DataService {
       id: 6,
       title: 'Burton Women\'s Starr Vest',
       description: 'Is the epitome of comfort and versatility thanks to a sweater fleece fabric.',
-      category: 'beautyandhealthcare',
+      category: 'automobiles',
       picture: '/assets/p6-1.jpg',
       price: 75,
       sale: 60,
@@ -202,6 +202,204 @@ export class DataService {
         },
       ],
     },
+    {
+      id: 9,
+      title: 'Strafe Outerwear Capital Snow Pants',
+      description: 'Will repel any type of weather you encounter during your mountain adventure',
+      category: 'grocery',
+      picture: '/assets/p9-1.jpg',
+      price: 350,
+      sale: 339,
+      photos: [
+        {
+          thumb: '/assets/p9-1.jpg',
+          full: '/assets/p9-1.jpg',
+          description: 'Pants',
+        },
+        {
+          thumb: '/assets/p9-2.jpg',
+          full: '/assets/p9-2.jpg',
+          description: 'Pants',
+        },
+      ],
+    },
+    
+    {
+      id: 9,
+      title: 'Strafe Outerwear Capital Snow Pants',
+      description: 'Will repel any type of weather you encounter during your mountain adventure',
+      category: 'beauty',
+      picture: '/assets/p9-1.jpg',
+      price: 350,
+      sale: 339,
+      photos: [
+        {
+          thumb: '/assets/p9-1.jpg',
+          full: '/assets/p9-1.jpg',
+          description: 'Pants',
+        },
+        {
+          thumb: '/assets/p9-2.jpg',
+          full: '/assets/p9-2.jpg',
+          description: 'Pants',
+        },
+      ],
+    },
+    
+    {
+      id: 9,
+      title: 'Strafe Outerwear Capital Snow Pants',
+      description: 'Will repel any type of weather you encounter during your mountain adventure',
+      category: 'beauty',
+      picture: '/assets/p9-1.jpg',
+      price: 350,
+      sale: 339,
+      photos: [
+        {
+          thumb: '/assets/p9-1.jpg',
+          full: '/assets/p9-1.jpg',
+          description: 'Pants',
+        },
+        {
+          thumb: '/assets/p9-2.jpg',
+          full: '/assets/p9-2.jpg',
+          description: 'Pants',
+        },
+      ],
+    },
+    
+    {
+      id: 9,
+      title: 'Strafe Outerwear Capital Snow Pants',
+      description: 'Will repel any type of weather you encounter during your mountain adventure',
+      category: 'healthcare',
+      picture: '/assets/p9-1.jpg',
+      price: 350,
+      sale: 339,
+      photos: [
+        {
+          thumb: '/assets/p9-1.jpg',
+          full: '/assets/p9-1.jpg',
+          description: 'Pants',
+        },
+        {
+          thumb: '/assets/p9-2.jpg',
+          full: '/assets/p9-2.jpg',
+          description: 'Pants',
+        },
+      ],
+    },
+    
+    {
+      id: 9,
+      title: 'Strafe Outerwear Capital Snow Pants',
+      description: 'Will repel any type of weather you encounter during your mountain adventure',
+      category: 'healthcare',
+      picture: '/assets/p9-1.jpg',
+      price: 350,
+      sale: 339,
+      photos: [
+        {
+          thumb: '/assets/p9-1.jpg',
+          full: '/assets/p9-1.jpg',
+          description: 'Pants',
+        },
+        {
+          thumb: '/assets/p9-2.jpg',
+          full: '/assets/p9-2.jpg',
+          description: 'Pants',
+        },
+      ],
+    },
+    
+    {
+      id: 9,
+      title: 'Strafe Outerwear Capital Snow Pants',
+      description: 'Will repel any type of weather you encounter during your mountain adventure',
+      category: 'healthcare',
+      picture: '/assets/p9-1.jpg',
+      price: 350,
+      sale: 339,
+      photos: [
+        {
+          thumb: '/assets/p9-1.jpg',
+          full: '/assets/p9-1.jpg',
+          description: 'Pants',
+        },
+        {
+          thumb: '/assets/p9-2.jpg',
+          full: '/assets/p9-2.jpg',
+          description: 'Pants',
+        },
+      ],
+    },
+    
+    {
+      id: 9,
+      title: 'Strafe Outerwear Capital Snow Pants',
+      description: 'Will repel any type of weather you encounter during your mountain adventure',
+      category: 'healthcare',
+      picture: '/assets/p9-1.jpg',
+      price: 350,
+      sale: 339,
+      photos: [
+        {
+          thumb: '/assets/p9-1.jpg',
+          full: '/assets/p9-1.jpg',
+          description: 'Pants',
+        },
+        {
+          thumb: '/assets/p9-2.jpg',
+          full: '/assets/p9-2.jpg',
+          description: 'Pants',
+        },
+      ],
+    },
+    
+    {
+      id: 9,
+      title: 'Strafe Outerwear Capital Snow Pants',
+      description: 'Will repel any type of weather you encounter during your mountain adventure',
+      category: 'books',
+      picture: '/assets/p9-1.jpg',
+      price: 350,
+      sale: 339,
+      photos: [
+        {
+          thumb: '/assets/p9-1.jpg',
+          full: '/assets/p9-1.jpg',
+          description: 'Pants',
+        },
+        {
+          thumb: '/assets/p9-2.jpg',
+          full: '/assets/p9-2.jpg',
+          description: 'Pants',
+        },
+      ],
+    },
+    
+    {
+      id: 9,
+      title: 'Strafe Outerwear Capital Snow Pants',
+      description: 'Will repel any type of weather you encounter during your mountain adventure',
+      category: 'books',
+      picture: '/assets/p9-1.jpg',
+      price: 350,
+      sale: 339,
+      photos: [
+        {
+          thumb: '/assets/p9-1.jpg',
+          full: '/assets/p9-1.jpg',
+          description: 'Pants',
+        },
+        {
+          thumb: '/assets/p9-2.jpg',
+          full: '/assets/p9-2.jpg',
+          description: 'Pants',
+        },
+      ],
+    },
+    
     {
       id: 9,
       title: 'Strafe Outerwear Capital Snow Pants',

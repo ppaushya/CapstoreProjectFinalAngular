@@ -13,7 +13,7 @@
       <div class="sub-title">{{ product.description }}</div>
       <div class="price-box">
         <div class="price">
-          {{ product.price }}$
+          Rs.{{ product.price }}
         </div>
         <div class="rating">
           <ui-rating [value]="3"></ui-rating>
@@ -36,7 +36,7 @@
     </div>
   </div>
   <div class="recently-viewed">
-    <h4>Recently viewed:</h4>
+    <h4>Similar products:</h4>
     <div class="list-cards">
       <app-card *ngFor="let product of recent" [product]="product"></app-card>
     </div>
