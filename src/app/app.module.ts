@@ -16,6 +16,9 @@ import { TrackComponent } from './track/track.component';
 import { RouterModule } from '@angular/router';
 import { HomePageComponent } from './home/home-page/home-page.component';
 import { ProductService } from './header/main-header/main-header.service';
+import { ChatService } from './chat.service';
+import { ChatModule } from './chat/chat.module';
+import { ChatDialogComponent } from './chat/chat-dialog/chat-dialog.component';
 
 
 export function hammerConfigFactory() {
@@ -39,8 +42,8 @@ export function hammerConfigFactory() {
     HeaderModule,
     FooterModule,
     SliderModule,
-    RouterModule
-   
+    RouterModule,
+    ChatModule
    
    
   ],
@@ -54,7 +57,8 @@ export function hammerConfigFactory() {
       provide: HAMMER_GESTURE_CONFIG,
       useFactory: hammerConfigFactory(),
     },
-    ProductService
+    ProductService,
+    ChatService
   ],
   bootstrap: [AppComponent],
 })

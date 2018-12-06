@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: './home/home.module#HomeModule',
   },
   {
+    path: 'chat',
+    loadChildren: './chat/chat.module#ChatModule',
+  },
+  {
     path: 'products',
     loadChildren: './products/products.module#ProductsModule',
   },

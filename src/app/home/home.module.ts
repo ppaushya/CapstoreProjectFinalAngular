@@ -6,6 +6,7 @@ import { KitOverlayModule } from '@ngx-kit/core';
 import { UiModule } from '../ui/ui.module';
 import { FormsModule } from '@angular/forms';
 import { SlidermainpageComponent } from '../slidermainpage/slidermainpage.component';
+import { ChatDialogComponent } from '../chat/chat-dialog/chat-dialog.component';
 
 
 @NgModule({
