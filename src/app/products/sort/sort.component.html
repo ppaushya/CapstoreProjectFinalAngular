@@ -1,5 +1,16 @@
+
 <div class="sort">
-  <p>Sort by</p>
-  <ui-custom-select [options]="options"></ui-custom-select>
+  <p>Sort by</p> 
+  
+     
+  
+    <select [(ngModel)]="selectedOption" (change)="sendoption()">
+        <option *ngFor="let i of options; let j = index" [ngValue]="j">{{i}}</option>
+  </select>
+ 
 </div>
 
+<!-- 
+ <div ng-controller="Ctrl">
+ <th><a href="" ng-click="predicate = 'title'; reverse=!reverse">count_loose</a></th>
+ </div> -->

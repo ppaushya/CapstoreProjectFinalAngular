@@ -8,6 +8,7 @@ import { ListPageComponent } from './list-page/list-page.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { SortComponent } from './sort/sort.component';
 import { ViewPageComponent } from './view-page/view-page.component';
+import { ListPagePipe } from './list-page/list-page.pipe';
 
 @NgModule({
   imports: [
@@ -21,7 +22,10 @@ import { ViewPageComponent } from './view-page/view-page.component';
     ViewPageComponent,
     SortComponent,
     CardComponent,
+    ListPagePipe,
+    
   ],
+  exports: [ListPagePipe]
 })
 export class ProductsModule {
 }

@@ -6,9 +6,7 @@ import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { FormsModule } from '@angular/forms';
 import { UiModule } from '../ui/ui.module';
-import { MerchantPageComponent } from './merchant-page/merchant-page.component';
 import { ForgotPasswordComponent } from './forgot-Password/forgot-Password.component';
-import { MerchantSignInComponent } from './merchant-sign-in/merchant-sign-in.component';
 
 @NgModule({
   imports: [
@@ -17,7 +15,7 @@ import { MerchantSignInComponent } from './merchant-sign-in/merchant-sign-in.com
     AuthRoutingModule,
     UiModule,
   ],
-  declarations: [SignInPageComponent, SignUpPageComponent, MerchantPageComponent,ForgotPasswordComponent, MerchantSignInComponent],
+  declarations: [SignInPageComponent, SignUpPageComponent,ForgotPasswordComponent],
 })
 export class AuthModule {
 }

@@ -31,6 +31,10 @@ export class AppComponent {
         name: 'search',
         url: '/assets/icons/search.svg',
       },
+      {
+        name: 'wishlist',
+        url: '/assets/icons/wishlist.svg',
+      },
     ]);
     // scroll to top
     this.router.events.subscribe(event => {

@@ -7,18 +7,25 @@
   <div class="list-page-container">
     <div class="main-content">
       <div class="search-result-options">
-        <app-sort></app-sort>
-        <!-- <div *ngFor='let product of searchedProducts'>
-            <app-card [product]="product"></app-card>
-          
-          </div> -->
+        <app-sort (selectedSortOption)="doSort($event)"></app-sort>
         
       </div>
       <div class="list-cards">
-        <div *ngFor="let product of filteredProducts " class="card">
+          <!-- <div *ngFor="let product of filteredProducts | sort : 'price'" class="card"> -->
+           
+          <div *ngFor="let product of filteredProducts | sort : sortBy" class="card">
           <app-card [product]="product"></app-card>
+          
         </div>
       </div>
+
+
+
+      <!-- <div class="list-cards">
+          <div ng-repeat="product of filteredProducts | orderBy:predicate:reverse" class="card">
+            <app-card [product]="product"></app-card>
+          </div>
+        </div> -->
    
     </div>
 

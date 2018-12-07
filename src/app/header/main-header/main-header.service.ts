@@ -14,18 +14,10 @@ export class ProductService {
   private filterBy:string;
   private subject = new Subject<any>();
  
-//private _productUrl= './api/products/products.json';
+
 
 constructor(private _http:HttpClient, private data: DataService){}
-// getProducts(): Observable<IProduct[]>{
-//     return this._http.get<IProduct[]>(this._productUrl)
-//         .do(data=>console.log('All: '+JSON.stringify(data)))
-//         .catch(this.handleError); 
-// }
-// private handleError(err: HttpErrorResponse){
-//     console.error(err.message);
-//     return Observable.throw(err.message);
-// }
+
 
 performFilter(filterby: string): void {
   //console.log("Service reached");

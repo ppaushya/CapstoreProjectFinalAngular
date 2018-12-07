@@ -11,7 +11,7 @@ export class DataService {
       category: 'electronics',
       picture: '/assets/p1-1.jpg',
       price: 170,
-      sale: 145,
+      sale: 785,
       photos: [
         {
           thumb: '/assets/p1-1.jpg',
@@ -42,7 +42,7 @@ export class DataService {
       picture: '/assets/p2-1.jpg',
       category: 'electronics',
       price: 400,
-      sale: 350,
+      sale: 785,
       photos: [
         {
           thumb: '/assets/p2-1.jpg',
@@ -63,7 +63,7 @@ export class DataService {
       category: 'healthcare',
       picture: '/assets/p3-1.jpg',
       price: 90,
-      sale: 68,
+      sale: 3654,
       photos: [
         {
           thumb: '/assets/p3-1.jpg',
@@ -84,7 +84,7 @@ export class DataService {
       category: 'healthcare',
       picture: '/assets/p4-1.jpg',
       price: 79,
-      sale: 55,
+      sale: 897,
       photos: [
         {
           thumb: '/assets/p4-1.jpg',
@@ -105,7 +105,7 @@ export class DataService {
       category: 'healthcare',
       picture: '/assets/p5-1.jpg',
       price: 125,
-      sale: 109,
+      sale: 523,
       photos: [
         {
           thumb: '/assets/p5-1.jpg',
@@ -126,7 +126,7 @@ export class DataService {
       category: 'automobiles',
       picture: '/assets/p6-1.jpg',
       price: 75,
-      sale: 60,
+      sale: 963,
       photos: [
         {
           thumb: '/assets/p6-1.jpg',
@@ -157,7 +157,7 @@ export class DataService {
       category: 'books',
       picture: '/assets/p7-1.jpg',
       price: 124,
-      sale: 90,
+      sale: 896,
       photos: [
         {
           thumb: '/assets/p7-1.jpg',
@@ -183,7 +183,7 @@ export class DataService {
       category: 'grocery',
       picture: '/assets/p8-1.jpg',
       price: 140,
-      sale: 135,
+      sale: 1963,
       photos: [
         {
           thumb: '/assets/p8-1.jpg',
@@ -209,7 +209,7 @@ export class DataService {
       category: 'grocery',
       picture: '/assets/p9-1.jpg',
       price: 350,
-      sale: 339,
+      sale: 174,
       photos: [
         {
           thumb: '/assets/p9-1.jpg',
@@ -231,7 +231,7 @@ export class DataService {
       category: 'beauty',
       picture: '/assets/p9-1.jpg',
       price: 350,
-      sale: 339,
+      sale: 1887,
       photos: [
         {
           thumb: '/assets/p9-1.jpg',
@@ -253,7 +253,7 @@ export class DataService {
       category: 'beauty',
       picture: '/assets/p9-1.jpg',
       price: 350,
-      sale: 339,
+      sale: 195,
       photos: [
         {
           thumb: '/assets/p9-1.jpg',
@@ -275,7 +275,7 @@ export class DataService {
       category: 'healthcare',
       picture: '/assets/p9-1.jpg',
       price: 350,
-      sale: 339,
+      sale: 183,
       photos: [
         {
           thumb: '/assets/p9-1.jpg',
@@ -297,7 +297,7 @@ export class DataService {
       category: 'healthcare',
       picture: '/assets/p9-1.jpg',
       price: 350,
-      sale: 339,
+      sale: 153,
       photos: [
         {
           thumb: '/assets/p9-1.jpg',
@@ -319,7 +319,7 @@ export class DataService {
       category: 'healthcare',
       picture: '/assets/p9-1.jpg',
       price: 350,
-      sale: 339,
+      sale: 164,
       photos: [
         {
           thumb: '/assets/p9-1.jpg',
@@ -341,7 +341,7 @@ export class DataService {
       category: 'healthcare',
       picture: '/assets/p9-1.jpg',
       price: 350,
-      sale: 339,
+      sale: 123,
       photos: [
         {
           thumb: '/assets/p9-1.jpg',
@@ -363,7 +363,7 @@ export class DataService {
       category: 'books',
       picture: '/assets/p9-1.jpg',
       price: 350,
-      sale: 339,
+      sale: 125,
       photos: [
         {
           thumb: '/assets/p9-1.jpg',
@@ -385,7 +385,7 @@ export class DataService {
       category: 'books',
       picture: '/assets/p9-1.jpg',
       price: 350,
-      sale: 339,
+      sale: 120,
       photos: [
         {
           thumb: '/assets/p9-1.jpg',
@@ -407,7 +407,7 @@ export class DataService {
       category: 'grocery',
       picture: '/assets/p9-1.jpg',
       price: 350,
-      sale: 339,
+      sale: 180,
       photos: [
         {
           thumb: '/assets/p9-1.jpg',
