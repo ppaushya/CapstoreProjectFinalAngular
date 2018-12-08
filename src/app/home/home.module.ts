@@ -7,7 +7,12 @@ import { UiModule } from '../ui/ui.module';
 import { FormsModule } from '@angular/forms';
 import { SlidermainpageComponent } from '../slidermainpage/slidermainpage.component';
 import { ChatDialogComponent } from '../chat/chat-dialog/chat-dialog.component';
-
+import { NgxHmCarouselModule } from 'ngx-hm-carousel';
+import {
+  MatCheckboxModule,
+  MatButtonModule,
+  MatSlideToggleModule
+} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -16,6 +21,12 @@ import { ChatDialogComponent } from '../chat/chat-dialog/chat-dialog.component';
     FormsModule,
     KitOverlayModule,
     UiModule,
+    
+    NgxHmCarouselModule,
+
+    MatCheckboxModule,
+    MatButtonModule,
+    MatSlideToggleModule,
   ],
   declarations: [
     HomePageComponent,
@@ -23,6 +34,7 @@ import { ChatDialogComponent } from '../chat/chat-dialog/chat-dialog.component';
     
     
   ],
+  bootstrap: [HomePageComponent]
 })
 export class HomeModule {
 }

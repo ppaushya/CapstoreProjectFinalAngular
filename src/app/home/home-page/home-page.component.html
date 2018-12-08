@@ -49,7 +49,7 @@
 
 
 
-
+<!-- 
   <div class="hot-offers">
     <div class="head">
       <div class="line">
@@ -89,67 +89,160 @@
         <button>SHOP NOW</button>
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <div class="trent-offers">
-    <div class="head">
-      <div class="line">
-        <hr class="hr">
-      </div>
-      <div class="title">
-        <h2>On Trend</h2>
-      </div>
-      <div class="line">
-        <hr class="hr">
-      </div>
-    </div>
-    <div class="offers">
-      
-      <div class="product">
-        <div class="wrapper">
-          <img src="../../../assets/p9-1.jpg">
-        </div>
-        <button>SHOP NOW</button>
-      </div>
-      <div class="product">
-        <div class="wrapper">
-          <img src="../../../assets/p8-1.jpg">
-        </div>
-        <button>SHOP NOW</button>
-      </div>
-    </div>
-  </div>
 
-  <div class="shipping">
-    <div class="head">
-      <div class="line">
-        <hr class="hr">
+
+
+  <button mat-raised-button (click)="push()">Push Item</button>
+<button mat-raised-button (click)="remove()" *ngIf="avatars.length > 1">Remove last Item</button>
+
+<h2>Nomal carousel</h2>
+<ngx-hm-carousel
+  [(ngModel)]="index"
+  (ngModelChange)="indexChanged($event)"
+  [autoplay-speed]="speed"
+  [autoplay]="autoplay"
+  [autoplay-direction]="direction"
+  [infinite]="infinite"
+  [between-delay]="2000"
+  class="carousel c-accent">
+
+  <section ngx-hm-carousel-container class="content">
+    <article class="item cursor-pointer visible_important"
+      ngx-hm-carousel-item
+      *ngFor="let avatar of avatars; let i = index">
+      <div class="img"
+        [style.backgroundImage]="'url('+avatar.url+')'">
       </div>
-      <div class="title">
-        <h2>Shopping Made Easy</h2>
-      </div>
-      <div class="line">
-        <hr class="hr">
-      </div>
+    </article>
+  </section>
+
+  <ng-template #carouselPrev>
+    <div class="click-area">
+      <i class="material-icons">keyboard_arrow_left</i>
     </div>
-    <div class="shipping-box">
-      <div class="element">Free shipping<br> when you spend<br> over $30</div>
-      <div class="element">30 Day<br> Returns</div>
-      <div class="element">Hey Student.<br> GET 30% OFF!</div>
+  </ng-template>
+  <ng-template #carouselNext>
+    <div class="click-area">
+      <i class="material-icons">keyboard_arrow_right</i>
     </div>
-  </div>
+  </ng-template>
+
+  <ng-template #carouselDot let-model>
+    <div class="ball bg-accent"
+      [class.visible]="model.index === model.currentIndex"></div>
+  </ng-template>
+
+</ngx-hm-carousel>
+
+<h2>Move with Animation</h2>
+<ngx-hm-carousel
+  [(ngModel)]="index"
+  (ngModelChange)="indexChanged($event)"
+  [autoplay-speed]="speed"
+  [autoplay]="autoplay"
+  [autoplay-direction]="direction"
+  [infinite]="infinite"
+  [between-delay]="2000"
+  [aniTime]="200"
+  class="carousel c-accent">
+
+  <section ngx-hm-carousel-container class="content">
+    <article class="item cursor-pointer fade_animation"
+      ngx-hm-carousel-item
+      *ngFor="let avatar of avatars; let i = index"
+      [ngClass]="{'visible': index===i}">
+      <div class="img"
+        [style.backgroundImage]="'url('+avatar.url+')'">
+      </div>
+    </article>
+  </section>
+
+  <ng-template #carouselPrev>
+    <div class="click-area">
+      <i class="material-icons">keyboard_arrow_left</i>
+    </div>
+  </ng-template>
+  <ng-template #carouselNext>
+    <div class="click-area">
+      <i class="material-icons">keyboard_arrow_right</i>
+    </div>
+  </ng-template>
+
+  <ng-template #carouselDot let-model>
+    <div class="ball bg-accent"
+      [class.visible]="model.index === model.currentIndex"></div>
+  </ng-template>
+
+  <ng-template #carouselProgress let-progress>    
+    <div class="progress"></div>
+  </ng-template>
+
+</ngx-hm-carousel>
+
+<h2>Not Drag with pan, and animation immediate</h2>
+<ngx-hm-carousel
+  [(ngModel)]="index"
+  (ngModelChange)="indexChanged($event)"
+  [autoplay-speed]="speed"
+  [autoplay]="autoplay"
+  [autoplay-direction]="direction"
+  [infinite]="infinite"
+  [between-delay]="2000"
+  [aniTime]="0"
+  [not-follow-pan]="true"
+  aniClass="none"
+  class="carousel c-accent">
+
+  <section ngx-hm-carousel-container class="content">
+    <article class="item cursor-pointer fade_animation_0"
+      ngx-hm-carousel-item
+      *ngFor="let avatar of avatars; let i = index"
+      [ngClass]="{'visible': index===i}">
+      <div class="img"
+        [style.backgroundImage]="'url('+avatar.url+')'">
+      </div>
+    </article>
+  </section>
+
+  <ng-template #carouselPrev>
+    <div class="click-area">
+      <i class="material-icons">keyboard_arrow_left</i>
+    </div>
+  </ng-template>
+  <ng-template #carouselNext>
+    <div class="click-area">
+      <i class="material-icons">keyboard_arrow_right</i>
+    </div>
+  </ng-template>
+
+  <ng-template #carouselDot let-model>
+    <div class="ball bg-accent"
+      [class.visible]="model.index === model.currentIndex"></div>
+  </ng-template>
+</ngx-hm-carousel>
+
+<button mat-raised-button (click)="speed=500">speed=500</button>
+<button mat-raised-button (click)="speed=2000">speed=2000</button>
+<button mat-raised-button (click)="speed=5000">speed=5000</button>
+<h2 class="center">
+  One Picture
+</h2>
+
+<div>
+  <mat-checkbox [(ngModel)]="autoplay" color="primary">Autoplay</mat-checkbox>
+  <mat-checkbox *ngIf="!autoplay" [(ngModel)]="infinite" color="primary">Infinite</mat-checkbox>
+
+  <mat-slide-toggle
+    color="primary"
+    [(ngModel)]="directionToggle" (change)="toggleDirection($event)">
+    {{directionToggle ? 'go right' : 'go left'}}
+  </mat-slide-toggle>
 </div>
 
-<div class="subscribe">
-  <div class="main-wrapper">
-    <div class="subscribe-box">
-      <div class="title">
-        Subscribe now & get 20% off on your first order!
-      </div>
-      <div class="join">
-        <input type="text" placeholder="Enter your email" [(ngModel)]="inputModel">
-        <button>Join</button>
-      </div>
-    </div>
-  </div>
+<div style="padding-top:1rem">
+  <button mat-raised-button color="warn" (click)="index = 0">Go Index 0</button>
+  <button mat-raised-button color="primary" (click)="index = 2">Go Index 2</button>
+  <button mat-raised-button color="accent" (click)="index = 4">Go Index 4</button>
 </div>

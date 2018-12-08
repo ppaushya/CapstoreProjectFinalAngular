@@ -44,7 +44,7 @@ export function hammerConfigFactory() {
     FooterModule,
     SliderModule,
     RouterModule,
-    ChatModule
+    ChatModule,
    
    
   ],
