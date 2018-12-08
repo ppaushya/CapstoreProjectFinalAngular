@@ -49,8 +49,8 @@ export class HomePageComponent implements OnInit {
 
 
   
-  index = 0;
-  speed = 5000;
+  index = 1;
+  speed = 3500;
   infinite = true;
   direction = 'right';
   directionToggle = true;
@@ -85,4 +85,7 @@ export class HomePageComponent implements OnInit {
   toggleDirection($event) {
     this.direction = this.directionToggle ? 'right' : 'left';
   }
+
+
+
 }
