@@ -92,12 +92,9 @@
   </div> -->
 
 
-
-
-  <button mat-raised-button (click)="push()">Push Item</button>
-<button mat-raised-button (click)="remove()" *ngIf="avatars.length > 1">Remove last Item</button>
-
-<h2>Nomal carousel</h2>
+<div class="row">
+  <div class="col-sm-5">
+<div class="container">
 <ngx-hm-carousel
   [(ngModel)]="index"
   (ngModelChange)="indexChanged($event)"
@@ -117,7 +114,7 @@
       </div>
     </article>
   </section>
-
+<!-- 
   <ng-template #carouselPrev>
     <div class="click-area">
       <i class="material-icons">keyboard_arrow_left</i>
@@ -127,7 +124,7 @@
     <div class="click-area">
       <i class="material-icons">keyboard_arrow_right</i>
     </div>
-  </ng-template>
+  </ng-template> -->
 
   <ng-template #carouselDot let-model>
     <div class="ball bg-accent"
@@ -135,8 +132,13 @@
   </ng-template>
 
 </ngx-hm-carousel>
+</div>
+</div>
 
-<h2>Move with Animation</h2>
+
+<div class="col-sm-5">
+<div class="container">
+
 <ngx-hm-carousel
   [(ngModel)]="index"
   (ngModelChange)="indexChanged($event)"
@@ -144,8 +146,8 @@
   [autoplay]="autoplay"
   [autoplay-direction]="direction"
   [infinite]="infinite"
-  [between-delay]="2000"
-  [aniTime]="200"
+  [between-delay]="500"
+  [aniTime]="100"
   class="carousel c-accent">
 
   <section ngx-hm-carousel-container class="content">
@@ -158,7 +160,7 @@
       </div>
     </article>
   </section>
-
+<!-- 
   <ng-template #carouselPrev>
     <div class="click-area">
       <i class="material-icons">keyboard_arrow_left</i>
@@ -168,7 +170,7 @@
     <div class="click-area">
       <i class="material-icons">keyboard_arrow_right</i>
     </div>
-  </ng-template>
+  </ng-template> -->
 
   <ng-template #carouselDot let-model>
     <div class="ball bg-accent"
@@ -180,69 +182,6 @@
   </ng-template>
 
 </ngx-hm-carousel>
-
-<h2>Not Drag with pan, and animation immediate</h2>
-<ngx-hm-carousel
-  [(ngModel)]="index"
-  (ngModelChange)="indexChanged($event)"
-  [autoplay-speed]="speed"
-  [autoplay]="autoplay"
-  [autoplay-direction]="direction"
-  [infinite]="infinite"
-  [between-delay]="2000"
-  [aniTime]="0"
-  [not-follow-pan]="true"
-  aniClass="none"
-  class="carousel c-accent">
-
-  <section ngx-hm-carousel-container class="content">
-    <article class="item cursor-pointer fade_animation_0"
-      ngx-hm-carousel-item
-      *ngFor="let avatar of avatars; let i = index"
-      [ngClass]="{'visible': index===i}">
-      <div class="img"
-        [style.backgroundImage]="'url('+avatar.url+')'">
-      </div>
-    </article>
-  </section>
-
-  <ng-template #carouselPrev>
-    <div class="click-area">
-      <i class="material-icons">keyboard_arrow_left</i>
-    </div>
-  </ng-template>
-  <ng-template #carouselNext>
-    <div class="click-area">
-      <i class="material-icons">keyboard_arrow_right</i>
-    </div>
-  </ng-template>
-
-  <ng-template #carouselDot let-model>
-    <div class="ball bg-accent"
-      [class.visible]="model.index === model.currentIndex"></div>
-  </ng-template>
-</ngx-hm-carousel>
-
-<button mat-raised-button (click)="speed=500">speed=500</button>
-<button mat-raised-button (click)="speed=2000">speed=2000</button>
-<button mat-raised-button (click)="speed=5000">speed=5000</button>
-<h2 class="center">
-  One Picture
-</h2>
-
-<div>
-  <mat-checkbox [(ngModel)]="autoplay" color="primary">Autoplay</mat-checkbox>
-  <mat-checkbox *ngIf="!autoplay" [(ngModel)]="infinite" color="primary">Infinite</mat-checkbox>
-
-  <mat-slide-toggle
-    color="primary"
-    [(ngModel)]="directionToggle" (change)="toggleDirection($event)">
-    {{directionToggle ? 'go right' : 'go left'}}
-  </mat-slide-toggle>
 </div>
-
-<div style="padding-top:1rem">
-  <button mat-raised-button color="warn" (click)="index = 0">Go Index 0</button>
-  <button mat-raised-button color="primary" (click)="index = 2">Go Index 2</button>
-  <button mat-raised-button color="accent" (click)="index = 4">Go Index 4</button>
+</div>
 </div>

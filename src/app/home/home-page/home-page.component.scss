@@ -198,6 +198,19 @@ button {
 }
 
 
+
+///SLIDERS
+.container{
+  position: relative;
+   width: 100%;
+   margin-bottom: 40px;
+   margin-top: 20px;
+   margin-left: 100px;
+}
+
+
+
+
 @media (max-width: 1200px) {
   .trent-offers {
     width: 100%;
@@ -349,7 +362,7 @@ button {
 
 //////////////////////@at-root
 
-$transition_time:.2s;
+$transition_time:.0s;
 
 .carousel {
   .content {
