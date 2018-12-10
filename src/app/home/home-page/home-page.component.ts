@@ -59,7 +59,7 @@ export class HomePageComponent implements OnInit {
     const num = i;
     // const num = Math.floor(Math.random() * 1000);
     return {
-      url: `https://picsum.photos/600/400/?${num}`,
+      url: `/assets/p5-${num}.jpg`,
       title: `${num}`
     };
   });

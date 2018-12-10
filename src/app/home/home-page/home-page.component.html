@@ -7,12 +7,13 @@
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 
- <div class="main-wrapper">
-    <nav class="navbar navbar-expand-sm ">
+<div id="navbar">
+
+  <nav class="navbar navbar-expand-sm ">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="navbar collapse navbar-collapse" id="navbarSupportedContent">
   <ul class="navbar-nav">
     <li class="nav-centered">
       <a class="nav-link" [routerLink]="['/products']" [queryParams]="{category:'electronics'}" >Electronics</a>
@@ -36,6 +37,12 @@
 </div>
 </nav>
 
+</div>
+
+
+
+ <div class="main-wrapper">
+   
 
 <!--Bootstrap-->
 
@@ -46,92 +53,30 @@
 
 
 
-
-
-
-<!-- 
-  <div class="hot-offers">
-    <div class="head">
-      <div class="line">
-        <hr class="hr">
-      </div>
-      <div class="title">
-        <h2>Hot Offers</h2>
-      </div>
-      <div class="line">
-        <hr class="hr">
-      </div>
-    </div>
-    <div class="offers">
-    
-      <div class="product">
-        <div class="wrapper">
-          <img src="../../../assets/p4-1.jpg">
-        </div>
-        <div class="sub-title">Best of Fall</div>
-        <div class="price">NOW 25% OFF</div>
-        <button>SHOP NOW</button>
-      </div>
-      <div class="product">
-        <div class="wrapper">
-          <img src="../../../assets/p5-1.jpg">
-        </div>
-        <div class="sub-title">Best of Fall</div>
-        <div class="price">NOW 25% OFF</div>
-        <button>SHOP NOW</button>
-      </div>
-      <div class="product">
-        <div class="wrapper">
-          <img src="../../../assets/p6-2.jpg">
-        </div>
-        <div class="sub-title">Best of Fall</div>
-        <div class="price">NOW 25% OFF</div>
-        <button>SHOP NOW</button>
-      </div>
-    </div>
-  </div> -->
-
-
 <div class="row">
   <div class="col-sm-5">
 <div class="container">
-<!-- <ngx-hm-carousel
-  [(ngModel)]="index"
-  (ngModelChange)="indexChanged($event)"
-  [autoplay-speed]="speed"
-  [autoplay]="autoplay"
-  [autoplay-direction]="direction"
-  [infinite]="infinite"
-  [between-delay]="2000"
-  class="carousel c-accent">
 
-  <section ngx-hm-carousel-container class="content">
-    <article class="item cursor-pointer visible_important"
-      ngx-hm-carousel-item
-      *ngFor="let avatar of avatars; let i = index">
-      <div class="img"
-        [style.backgroundImage]="'url('+avatar.url+')'">
-      </div>
-    </article>
-  </section>
-
-  <ng-template #carouselPrev>
-    <div class="click-area">
-      <i class="material-icons">keyboard_arrow_left</i>
+    <div class="container">
+        <blockquote class="quote-box">
+          <p class="quotation-mark">
+            “
+          </p>
+          <p class="quote-text">
+            If you want to buy something, Please try us once. 
+          </p>
+          <hr>
+          <div class="blog-post-actions">
+            <p class="blog-post-bottom pull-left">
+              #CapStore
+            </p>
+            <p class="blog-post-bottom pull-right">
+              <span class="badge quote-badge">896</span>  ❤
+            </p>
+          </div>
+        </blockquote>
     </div>
-  </ng-template>
-  <ng-template #carouselNext>
-    <div class="click-area">
-      <i class="material-icons">keyboard_arrow_right</i>
-    </div>
-  </ng-template>
-
-  <ng-template #carouselDot let-model>
-    <div class="ball bg-accent"
-      [class.visible]="model.index === model.currentIndex"></div>
-  </ng-template>
-
-</ngx-hm-carousel>-->
+      
 </div>
 </div> 
 
@@ -185,3 +130,4 @@
 </div>
 </div>
 </div>
+

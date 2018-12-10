@@ -31,6 +31,14 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: './auth/auth.module#AuthModule',
   },
+  {
+    path: 'payment',
+    loadChildren: './payment/payment.module#PaymentModule',
+  },
+  {
+    path: 'invoice',
+    loadChildren: './Invoice/invoice.module#InvoiceModule',
+  },
 ];
 
 @NgModule({
