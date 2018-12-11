@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../../data/data.service';
 import { Product } from '../../data/meta';
@@ -17,6 +17,8 @@ export class ViewPageComponent implements OnInit {
 
   recent: Product[];
 
+  sub: any;
+
   constructor(private data: DataService,
               private route: ActivatedRoute) {
   }
@@ -28,4 +30,19 @@ export class ViewPageComponent implements OnInit {
       this.recent = this.data.products.slice(0, 4);
     });
   }
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
 }

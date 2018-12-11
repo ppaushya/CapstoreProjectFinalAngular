@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../header/main-header/main-header.service';
 import { SortService } from '../sort/sort.service';
 import { Pipe, PipeTransform } from "@angular/core";
+import { MyProduct } from '../../data/product';
 
 @Component({
   selector: 'app-list-page',
@@ -29,6 +30,30 @@ export class ListPageComponent implements OnInit {
     'sale',
     'views',
 ];
+
+min:number;
+max:number;
+range:Range[]=[{
+"min":0,
+"max":0
+}];
+sortedproducts:MyProduct[]=[
+{
+"productId": 0,
+"productName": "",
+"inventoryId": 0,
+"productPrice": 0,
+"merchantId": 0,
+"productsSold": 0,
+"productView": 0,
+"productDescription": "",
+"quantity": 0,
+"discount": 0,
+"brand": "",
+"string": ""
+}
+] ; 
+ 
 
   constructor(private data: DataService,private sortService:SortService,
           private route: ActivatedRoute,
@@ -74,4 +99,47 @@ export class ListPageComponent implements OnInit {
    
    
       }
-  }
+ 
+      lowtohigh():void{
+      this.sortBy="lowtohigh";
+      this.sortService.set_sort_option(this.sortBy);
+      // this.category=this.sortService.getCategory();
+      this.sortService.getAscProducts(this.category).subscribe(Allproducts=>{this.sortedproducts=Allproducts});
+      // this.sortService.set_sorted_products(this.filteredProducts);
+      }
+      hightolow():void{
+      this.sortBy="hightolow";
+      this.sortService.set_sort_option(this.sortBy);
+      // this.category=this.sortService.getCategory();
+      this.sortService.getDscProducts(this.category).subscribe(Allproducts=>{this.sortedproducts=Allproducts});
+      // this.sortService.set_sorted_products(this.sortedproducts);
+      }
+      mostViewed():void{
+      this.sortBy="mostViewed";
+      this.sortService.set_sort_option(this.sortBy);
+      // this.category=this.sortService.getCategory();
+      this.sortService.getMostViewed(this.category).subscribe(product=>this.sortedproducts=product);
+      // this.sortService.set_sorted_products(this.sortedproducts);
+      }
+      bestSellers():void{
+      this.sortBy="bestSellers";
+      this.sortService.set_sort_option(this.sortBy);
+      // this.category=this.sortService.getCategory();
+      this.sortService.getbestSellers(this.category).subscribe(product=>this.sortedproducts=product);
+      // this.sortService.set_sorted_products(this.sortedproducts);
+      }
+      // inRange(min:Range,max:Range):void{
+      // this.sortBy="mostViewed";
+      // this.sortService.set_sort_option(this.sortBy);
+      inRange(range:Range):void{
+      this.sortService.inRange(this.category,range.min,range.max).subscribe(product=>this.sortedproducts=product);
+      // this.sortService.set_sorted_products(this.sortedproducts);
+      }
+    }
+      
+    
+      export interface Range {
+        min:number;
+        max:number;
+        }     
+  

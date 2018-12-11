@@ -7,7 +7,49 @@
   <div class="list-page-container">
     <div class="main-content">
       <div class="search-result-options">
-        <app-sort (selectedSortOption)="doSort($event)"></app-sort>
+  
+              <div class="sort">
+              
+              <h4>Sort By</h4>
+              <form>
+                              
+              <input type="radio"  [(ngModel)]="selectedOption" name="sort" value="lowtohigh" 
+              (click)="lowtohigh()">Low to High &nbsp;&nbsp;
+               
+               
+              <input type="radio"   [(ngModel)]="selectedOption" name="sort" value="hightolow"
+              (click)="hightolow()">High to Low &nbsp; &nbsp;
+           
+              <input type="radio" [(ngModel)]="selectedOption" name="sort"value="mostviewed"
+              (click)="mostViewed()">Most Viewed &nbsp;&nbsp;
+           
+              <input type="radio"  [(ngModel)]="selectedOption" name="sort" value="bestSeller"
+              (click)="bestSellers()"> Best Seller
+            
+              <br>
+              <br>
+         
+
+
+             
+              Range: 
+              <br>
+              
+              Min:
+              <input type="text" name="min" [(ngModel)]='range.min' class="myclass">
+              To
+              Max:
+              <input type="text" name="max" [(ngModel)]='range.max' class="myclass">
+        
+
+
+
+              <input type="submit" value="Go" (click)="inRange(range)" class="button5">
+              </form>
+            
+              </div>  
+               
+              
         
       </div>
       <div class="list-cards">
@@ -19,6 +61,11 @@
         </div>
       </div>
 
+
+      <div *ngFor="let product of sortedproducts" class="card">
+          <label>{{product.productName}}</label>
+          
+          </div> 
 
 
       <!-- <div class="list-cards">
