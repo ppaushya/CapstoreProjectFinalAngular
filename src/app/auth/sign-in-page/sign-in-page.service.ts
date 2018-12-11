@@ -26,10 +26,10 @@ export class SignInPageService {
     return this._http.post<Login>(this.loginUrl+'/login',login)
   }
 
-  authenticate()
+  setauthenticate(str)
   {
     console.log("userinauthenticate")
-    this.userauthenticate=true;
+    this.userauthenticate=str;
     console.log(this.userauthenticate);
   }
 

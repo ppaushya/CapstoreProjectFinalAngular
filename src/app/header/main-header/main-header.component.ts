@@ -19,7 +19,7 @@ export class MainHeaderComponent implements OnInit{
   menuAnchor: any;
   
   countincart:Cart[];
-  isLoggedIn:boolean;
+  isLoggedIn:boolean=true;
 
   _listFilter:string;
   products: Product[]=[]
@@ -36,8 +36,7 @@ export class MainHeaderComponent implements OnInit{
     this.products= this._productService.getProducts();
     
     this.cartService.cartcount().subscribe(cart1=>this.countincart=cart1);
-    console.log(this.isLoggedIn);
-    this.isLoggedIn=this.signinservice.getauthenticate();
+
   
   }
 
@@ -45,12 +44,28 @@ export class MainHeaderComponent implements OnInit{
 
   get listFilter() :string {
     return this._listFilter;
+  }
+    set listFilter(value:string) {
+         this._listFilter=value;
+
+            this._productService.performFilter(this.listFilter);
+
 }
-set listFilter(value:string) {
-    this._listFilter=value;
 
-    this._productService.performFilter(this.listFilter);
+login():boolean{
 
+  console.log(this.isLoggedIn);
+  console.log("loginpage")
+  return this.signinservice.getauthenticate();
+
+}
+
+logout()
+{
+  console.log("logout");
+  this.isLoggedIn=false;
+  window.location.reload();
+  
 }
 
 
