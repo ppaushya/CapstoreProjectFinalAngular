@@ -35,10 +35,6 @@ const routes: Routes = [
     path: 'payment',
     loadChildren: './payment/payment.module#PaymentModule',
   },
-  {
-    path: 'invoice',
-    loadChildren: './Invoice/invoice.module#InvoiceModule',
-  },
 ];
 
 @NgModule({

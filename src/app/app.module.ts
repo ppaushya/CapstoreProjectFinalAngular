@@ -20,7 +20,6 @@ import { ChatService } from './chat.service';
 import { ChatModule } from './chat/chat.module';
 import { ChatDialogComponent } from './chat/chat-dialog/chat-dialog.component';
 import { SortService } from './products/sort/sort.service';
-import { InvoiceComponent } from './invoice/invoice.component';
 
 
 export function hammerConfigFactory() {
@@ -52,7 +51,6 @@ export function hammerConfigFactory() {
   declarations: [
     AppComponent,
     TrackComponent,
-    InvoiceComponent,
   ],
   providers: [
     DataService,SortService,
@@ -61,7 +59,7 @@ export function hammerConfigFactory() {
       useFactory: hammerConfigFactory(),
     },
     ProductService,
-    ChatService
+    ChatService,
   ],
   bootstrap: [AppComponent],
 })

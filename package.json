@@ -1,5 +1,5 @@
 {
-  "name": "ui-alma",
+  "name": "capstore",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -8,16 +8,16 @@
     "start:preview": "ng serve --app=preview",
     "build:browser": "ng build --prod",
     "build:server": "npm run build:browser && npm run build:server:app && npm run build:server:bundle",
-    "build:server:app": "ng run ui-alma:server",
+    "build:server:app": "ng run capstore:server",
     "build:server:bundle": "webpack --config webpack.server.config.js --progress --colors",
     "serve:server": "node dist/server",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "deploy": "npm run build:server && npm run docker:build && npm run docker:push",
-    "docker:build": "docker build -t dhub.nvx.me:443/ngx-kit-ui-alma .",
-    "docker:run": "docker run -d -p 4001:4000 dhub.nvx.me:443/ngx-kit-ui-alma",
-    "docker:push": "docker push dhub.nvx.me:443/ngx-kit-ui-alma"
+    "docker:build": "docker build -t dhub.nvx.me:443/ngx-kit-capstore .",
+    "docker:run": "docker run -d -p 4001:4000 dhub.nvx.me:443/ngx-kit-capstore",
+    "docker:push": "docker push dhub.nvx.me:443/ngx-kit-capstore"
   },
   "private": true,
   "dependencies": {
