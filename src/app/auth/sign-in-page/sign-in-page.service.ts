@@ -30,6 +30,7 @@ export class SignInPageService {
   {
     console.log("userinauthenticate")
     this.userauthenticate=true;
+    console.log(this.userauthenticate);
   }
 
   getauthenticate():boolean{
