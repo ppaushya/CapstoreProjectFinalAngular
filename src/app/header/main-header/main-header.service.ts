@@ -20,15 +20,10 @@ constructor(private _http:HttpClient, private data: DataService){}
 
 
 performFilter(filterby: string): void {
-  //console.log("Service reached");
   this.subject.next({ text: filterby });
-  //console.log(this.filterBy);
 }
 
 getPerformFilter():Observable<any>{
-  // console.log("Service Getter");
-  // console.log(this.filteredProducts);
-  // return this.filteredProducts.asObservable();
 
   return this.subject.asObservable();
   

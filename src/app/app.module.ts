@@ -20,6 +20,24 @@ import { ChatService } from './chat.service';
 import { ChatModule } from './chat/chat.module';
 import { ChatDialogComponent } from './chat/chat-dialog/chat-dialog.component';
 import { SortService } from './products/sort/sort.service';
+import { CardService } from './servicelayer/card/card.service';
+import { ProductImage } from './pojo/productimage';
+import { ProductimageService } from './servicelayer/productimage/productimage.service';
+import { CartproductService } from './servicelayer/cartproduct/cartproduct.service';
+import { CartService } from './servicelayer/cart/cart.service';
+import { AddressService } from './servicelayer/address/address.service';
+import { FeedbackService } from './servicelayer/feedback/feedback.service';
+import { InvoiceService } from './servicelayer/invoice/invoice.service';
+import { CouponService } from './servicelayer/coupon/coupon.service';
+import { ReturnService } from './servicelayer/return/return.service';
+import { InventoryService } from './servicelayer/inventory/inventory.service';
+import { ShipmentService } from './servicelayer/shipment/shipment.service';
+import { TransactionService } from './servicelayer/transaction/transaction.service';
+import { WishlistService } from './servicelayer/wishlist/wishlist.service';
+import { OrderService } from './servicelayer/order/order.service';
+import { BankaccountService } from './servicelayer/bankaccount/bankaccount.service';
+import { CustomerService } from './servicelayer/customer/customer.service';
+import { SignInPageService } from './auth/sign-in-page/sign-in-page.service';
 
 
 export function hammerConfigFactory() {
@@ -53,13 +71,33 @@ export function hammerConfigFactory() {
     TrackComponent,
   ],
   providers: [
-    DataService,SortService,
+    DataService,
+    SortService,
     {
       provide: HAMMER_GESTURE_CONFIG,
       useFactory: hammerConfigFactory(),
     },
     ProductService,
     ChatService,
+    CardService,
+    ProductImage,
+    ProductimageService,
+    CartproductService,
+    CartService,
+    AddressService,
+    FeedbackService,
+    InvoiceService,
+    CouponService,
+    ReturnService,
+    InventoryService,
+    ShipmentService,
+    TransactionService,
+    WishlistService,
+    OrderService,
+    BankaccountService,
+    CustomerService,
+    SignInPageService
+
   ],
   bootstrap: [AppComponent],
 })

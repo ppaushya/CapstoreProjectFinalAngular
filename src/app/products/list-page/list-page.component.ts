@@ -103,37 +103,31 @@ sortedproducts:MyProduct[]=[
       lowtohigh():void{
       this.sortBy="lowtohigh";
       this.sortService.set_sort_option(this.sortBy);
-      // this.category=this.sortService.getCategory();
       this.sortService.getAscProducts(this.category).subscribe(Allproducts=>{this.sortedproducts=Allproducts});
-      // this.sortService.set_sorted_products(this.filteredProducts);
+     
       }
       hightolow():void{
       this.sortBy="hightolow";
       this.sortService.set_sort_option(this.sortBy);
-      // this.category=this.sortService.getCategory();
       this.sortService.getDscProducts(this.category).subscribe(Allproducts=>{this.sortedproducts=Allproducts});
-      // this.sortService.set_sorted_products(this.sortedproducts);
+     
       }
       mostViewed():void{
       this.sortBy="mostViewed";
       this.sortService.set_sort_option(this.sortBy);
-      // this.category=this.sortService.getCategory();
       this.sortService.getMostViewed(this.category).subscribe(product=>this.sortedproducts=product);
-      // this.sortService.set_sorted_products(this.sortedproducts);
+      
       }
       bestSellers():void{
       this.sortBy="bestSellers";
       this.sortService.set_sort_option(this.sortBy);
-      // this.category=this.sortService.getCategory();
       this.sortService.getbestSellers(this.category).subscribe(product=>this.sortedproducts=product);
-      // this.sortService.set_sorted_products(this.sortedproducts);
+      
       }
-      // inRange(min:Range,max:Range):void{
-      // this.sortBy="mostViewed";
-      // this.sortService.set_sort_option(this.sortBy);
+
       inRange(range:Range):void{
       this.sortService.inRange(this.category,range.min,range.max).subscribe(product=>this.sortedproducts=product);
-      // this.sortService.set_sorted_products(this.sortedproducts);
+      
       }
     }
       

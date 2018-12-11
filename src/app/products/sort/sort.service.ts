@@ -36,7 +36,6 @@ private sortUrl="http://10.138.150.215:8086/capstore/api/v1";
 
 getAscProducts(category):Observable<MyProduct[]>{
 
-console.log("Iamheere");
 return this.http.get<MyProduct[]>(this.sortUrl+'/Books'+"/"+"lowtohigh").do(data=>console.log('All :' + JSON.stringify(data)));
 
 
