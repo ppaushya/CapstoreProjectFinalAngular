@@ -18,7 +18,7 @@ export class CartService {
   cart:Cart[];
 
   constructor(private http:HttpClient) { }
-  private sortUrl="http://10.138.150.215:8084/capstore/api/v1";
+  private sortUrl="http://10.138.150.215:8083/capstore/api/v1";
 
   cartcount():Observable<Cart[]>{
 

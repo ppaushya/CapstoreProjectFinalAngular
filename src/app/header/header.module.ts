@@ -11,6 +11,7 @@ import {
 } from '@ngx-kit/core';
 import { UiModule } from '../ui/ui.module';
 import { MainHeaderComponent } from './main-header/main-header.component';
+import { UiButtonComponent } from '../ui/ui-button/ui-button/ui-button.component';
 
 @NgModule({
   imports: [
@@ -23,9 +24,11 @@ import { MainHeaderComponent } from './main-header/main-header.component';
     KitOutsideClickModule,
     KitPositionModule,
     UiModule,
+    
   ],
   declarations: [
-    MainHeaderComponent
+    MainHeaderComponent,
+    
   ],
   exports: [
     MainHeaderComponent,
