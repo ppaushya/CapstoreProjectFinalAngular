@@ -1,18 +1,43 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Login } from '../../models/login';
 import { Observable } from 'rxjs';
+
+
+const httpOptions={
+  headers:new HttpHeaders({'Content-Type':'application/json'})
+  }
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class SignInPageService {
 
-  loginUrl:string="";
+
+
+  userauthenticate:boolean=false;
+
+  private loginUrl:string="http://10.138.150.215:8083/capstore/api/v1";
   constructor(private _http:HttpClient) {}
 
   validateEmail(login:Login):Observable<Login>
   {
-    return this._http.post<Login>(this.loginUrl,login)
+    return this._http.post<Login>(this.loginUrl+'/login',login)
   }
+
+  authenticate()
+  {
+    console.log("userinauthenticate")
+    this.userauthenticate=true;
+  }
+
+  getauthenticate():boolean{
+    console.log("useringetauthenticatemanner")
+    return this.userauthenticate;
+  }
+
+
+
 }
+

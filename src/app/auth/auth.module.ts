@@ -7,6 +7,7 @@ import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { FormsModule } from '@angular/forms';
 import { UiModule } from '../ui/ui.module';
 import { ForgotPasswordComponent } from './forgot-Password/forgot-Password.component';
+import { MainHeaderComponent } from '../header/main-header/main-header.component';
 
 @NgModule({
   imports: [

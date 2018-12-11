@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Login } from '../../models/login';
 import { SignInPageService } from './sign-in-page.service';
 import { RouterModule, Router } from '@angular/router';
@@ -12,12 +12,15 @@ export class SignInPageComponent implements OnInit {
   
   login:Login=new Login();
   message:string;
-  validLogin:Login=new Login();
-  invalid:boolean=false;
+ 
   validEmail:boolean=false;
+
+  @Input() invalid:boolean;
   constructor(private _service:SignInPageService, private _router:Router) { }
 
   ngOnInit() {
+
+    
   }
 
   validateLogin()
@@ -28,10 +31,8 @@ export class SignInPageComponent implements OnInit {
       if(validLogin.userTypes=="CUSTOMER")
       {
         this._router.navigate(['/home'])
-      }
-      else if(validLogin.userTypes=="MERCHANT")
-      {
-        this._router.navigate(['/merchant'])
+        this.invalid=true;
+        this._service.authenticate();
       }
       else if(validLogin==null)
       {
@@ -41,7 +42,6 @@ export class SignInPageComponent implements OnInit {
 
       }
     
-
       }
     )
   }

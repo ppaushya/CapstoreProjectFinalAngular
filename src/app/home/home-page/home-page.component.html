@@ -1,5 +1,5 @@
 
-
+<!--Bootstrap inclusion-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -7,6 +7,7 @@
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 
+<!--Navbar-->
 <div id="navbar">
 
   <nav class="navbar navbar-expand-sm ">
@@ -36,12 +37,10 @@
   </ul>
 </div>
 </nav>
-
 </div>
 
 
 
- <div class="main-wrapper">
    
 
 <!--Bootstrap-->
@@ -83,10 +82,10 @@
 
 <div class="col-sm-5">
 <div class="container">
-
+    <!-- (ngModelChange)="indexChanged($event)" -->
 <ngx-hm-carousel
   [(ngModel)]="index"
-  (ngModelChange)="indexChanged($event)"
+ 
   [autoplay-speed]="speed"
   [autoplay]="autoplay"
   [autoplay-direction]="direction"
@@ -105,17 +104,6 @@
       </div>
     </article>
   </section>
-<!-- 
-  <ng-template #carouselPrev>
-    <div class="click-area">
-      <i class="material-icons">keyboard_arrow_left</i>
-    </div>
-  </ng-template>
-  <ng-template #carouselNext>
-    <div class="click-area">
-      <i class="material-icons">keyboard_arrow_right</i>
-    </div>
-  </ng-template> -->
 
   <ng-template #carouselDot let-model>
     <div class="ball bg-accent"
