@@ -1,9 +1,8 @@
 import { Injectable } from "@angular/core";  
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { Product } from "../../data/meta";
 import { ListPageComponent } from "../list-page/list-page.component";
-import { MyProduct } from "../../data/product";
+import { Product } from "../../pojo/product";
 
 
 const httpOptions={
@@ -15,7 +14,7 @@ export class SortService {
 selectedOption:string;
 productCategory:string;
 private product:Product;
-sortedProducts:MyProduct[];
+sortedProducts:Product[];
 constructor(private http:HttpClient) { }
 set_sort_option(selectedoption){
 // console.log(selectedoption+"set");
@@ -32,19 +31,19 @@ this.productCategory=category;
 getCategory():string{
 return this.productCategory;
 }
-private sortUrl="http://10.138.150.215:8086/capstore/api/v1";
+private sortUrl="http://10.138.150.215:8083/capstore/api/v1";
 
-getAscProducts(category):Observable<MyProduct[]>{
+getAscProducts(category):Observable<Product[]>{
 
-return this.http.get<MyProduct[]>(this.sortUrl+'/Books'+"/"+"lowtohigh").do(data=>console.log('All :' + JSON.stringify(data)));
+return this.http.get<Product[]>(this.sortUrl+'/'+category+"/"+"lowtohigh");
 
 
 }
 
-getDscProducts(category):Observable<MyProduct[]>{
+getDscProducts(category):Observable<Product[]>{
 
 
-return this.http.get<MyProduct[]>(this.sortUrl+'/Books'+"/"+"hightolow");
+return this.http.get<Product[]>(this.sortUrl+'/'+category+"/"+"hightolow");
 
 }
 set_sorted_products(sortedProducts){
@@ -57,19 +56,19 @@ return this.sortedProducts;
 
 
 
-getMostViewed(category):Observable<MyProduct[]>{
+getMostViewed(category):Observable<Product[]>{
 
-return this.http.get<MyProduct[]>(this.sortUrl+'/'+'Clothing'+"/"+"mostViewed");
+return this.http.get<Product[]>(this.sortUrl+'/'+category+"/"+"mostViewed");
 
 }
-getbestSellers(category):Observable<MyProduct[]>{
+getbestSellers(category):Observable<Product[]>{
 
-return this.http.get<MyProduct[]>(this.sortUrl+'/'+'Clothing'+"/"+"BestSeller");
+return this.http.get<Product[]>(this.sortUrl+'/'+category+"/"+"BestSeller");
 }
 
-inRange(category,min,max):Observable<MyProduct[]>{
+inRange(category,min,max):Observable<Product[]>{
 
-return this.http.get<MyProduct[]>(this.sortUrl+'/'+'Clothing' +'/'+ min+'/'+max);
+return this.http.get<Product[]>(this.sortUrl+'/'+category +'/'+ min+'/'+max);
 
 }
 

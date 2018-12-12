@@ -1,17 +1,17 @@
-<a [routerLink]="['/products/', product.id]">
+<a [routerLink]="['/products/', product.productId]">
 <div class="product-photo">
-  <img [src]="product.picture">
+  <img [src]="product.imageUrl">
 </div>
 <div class="product-info">
   <div>
     <div class="title">
-      <h3>{{ product.title }}</h3>
+      <h3>{{ product.productName }}</h3>
     </div>
-    <div class="sub-title">{{ product.description }}</div>
+    <div class="sub-title">{{ product.productDescription }}</div>
   </div>
   <div class="price-box">
-    <p class="old-price">Rs.{{product.price }}</p>
-    <p class="new-price">Rs.{{ product.sale }}</p>
+    <p class="old-price">Rs.{{product.productPrice }}</p>
+    <p class="new-price">Rs.{{ product.discount }}</p>
   </div>
 </div>
 </a>

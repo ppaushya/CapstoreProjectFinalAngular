@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Product } from '../../data/meta';
+import { Product } from '../../pojo/product';
+
 
 @Component({
   selector: 'app-card',

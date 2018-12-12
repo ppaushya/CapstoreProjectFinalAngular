@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../data/meta';
-import { ProductService } from '../../header/main-header/main-header.service';
+import { Product } from '../../pojo/product';
+import { ProductService } from '../../servicelayer/product/product.service';
 
 @Component({
   selector: 'app-home-page',
@@ -14,23 +14,14 @@ export class HomePageComponent implements OnInit {
 
   public imagesUrl;
   constructor(private _productService: ProductService){
-    this.products= this._productService.getProducts();
     this.filteredProducts=this.products;
-    this._productService.getPerformFilter().subscribe(
-      serach => {
-        this.searchTerm = serach['text'];
-        this.filteredProducts=this.searchTerm ? this.performFilter(this.searchTerm):this.products;
-      }
-    );
+  
    
   }
 
+  
 
-  performFilter(filterBy:string):any []{
-    filterBy=filterBy.toLocaleLowerCase();
-    return this.products.filter((product:Product)=>
-     product.title.toLocaleLowerCase().indexOf(filterBy)!==-1 ||product.description.toLocaleLowerCase().indexOf(filterBy)!==-1 ||product.category.toLocaleLowerCase().indexOf(filterBy)!==-1);
-}
+
   ngOnInit() {
   
   }

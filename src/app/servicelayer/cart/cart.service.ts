@@ -22,7 +22,7 @@ export class CartService {
 
   cartcount():Observable<Cart[]>{
 
-    return this.http.get<Cart[]>(this.sortUrl+'/cartcount').do(data=>console.log('All :' + JSON.stringify(data)));
+    return this.http.get<Cart[]>(this.sortUrl+'/cartcount');
     
     
     }

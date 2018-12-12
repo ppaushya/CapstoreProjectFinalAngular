@@ -7,7 +7,6 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { DataService } from './data/data.service';
 import { FooterModule } from './footer/footer.module';
 import { HeaderModule } from './header/header.module';
 import { UiModule } from './ui/ui.module';
@@ -15,7 +14,6 @@ import { SliderModule } from 'angular-image-slider';
 import { TrackComponent } from './track/track.component';
 import { RouterModule } from '@angular/router';
 import { HomePageComponent } from './home/home-page/home-page.component';
-import { ProductService } from './header/main-header/main-header.service';
 import { ChatService } from './chat.service';
 import { ChatModule } from './chat/chat.module';
 import { ChatDialogComponent } from './chat/chat-dialog/chat-dialog.component';
@@ -38,6 +36,8 @@ import { OrderService } from './servicelayer/order/order.service';
 import { BankaccountService } from './servicelayer/bankaccount/bankaccount.service';
 import { CustomerService } from './servicelayer/customer/customer.service';
 import { SignInPageService } from './auth/sign-in-page/sign-in-page.service';
+import { AppService } from './app.service';
+import { ProductService } from './servicelayer/product/product.service';
 
 
 export function hammerConfigFactory() {
@@ -71,7 +71,6 @@ export function hammerConfigFactory() {
     TrackComponent,
   ],
   providers: [
-    DataService,
     SortService,
     {
       provide: HAMMER_GESTURE_CONFIG,
@@ -96,7 +95,8 @@ export function hammerConfigFactory() {
     OrderService,
     BankaccountService,
     CustomerService,
-    SignInPageService
+    SignInPageService,
+    AppService
 
   ],
   bootstrap: [AppComponent],

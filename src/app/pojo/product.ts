@@ -16,5 +16,6 @@ export class Product{
     quantity:number;
     discount:number;
     brand:string;
+    imageUrl:string;
     
     }
