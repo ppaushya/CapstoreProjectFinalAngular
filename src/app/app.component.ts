@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { KitIconsRegistryService, KitPlatformService } from '@ngx-kit/core';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ import { KitIconsRegistryService, KitPlatformService } from '@ngx-kit/core';
 export class AppComponent {
   constructor(private icons: KitIconsRegistryService,
               private router: Router,
-              private platform: KitPlatformService) {
+              private platform: KitPlatformService,
+              private appService: AppService) {
     this.icons.add([
       {
         name: 'star',
@@ -42,5 +44,6 @@ export class AppComponent {
         window.scrollTo(0, 0);
       }
     });
+    
   }
 }

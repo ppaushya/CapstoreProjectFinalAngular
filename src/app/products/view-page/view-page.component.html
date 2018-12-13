@@ -16,15 +16,16 @@
       <div class="sub-title">{{ product.productDescription }}</div>
       <div class="price-box">
         <div class="price">
-          Rs.{{ product.productPrice }}
+          <s>Rs.{{ product.productPrice}}</s>&nbsp;Rs.{{ product.productPrice*(1-product.discount/100) }}
         </div>
         <div class="rating">
-         avg-rating <ui-rating [value]="productRating"></ui-rating>
+         Avg-Rating <ui-rating [value]="productRating"></ui-rating>
         </div>
       </div>
      
       <div class="quantity">
-        <ui-qt-input [ngModel]="4"></ui-qt-input>
+        <!-- <ui-qt-input [(ngModel)]="cartProduct.quantity"></ui-qt-input> -->
+        <input type="number" [(ngModel)]="cartProduct.quantity">
       </div>
       <button class="add" [uiButton] [icon]="'cart'" (click)="addToCart()" >Add to cart</button>
       <button class="add" [uiButton] [icon]="'wishlist'" (click)="addToWishlist()" >Add to wishlist</button>

@@ -1,3 +1,55 @@
-<p>
-  wishlist works!
-</p>
+<div class="main-wrapper">
+    <h1>Your Wishlist</h1>
+    <p>Please review the contents of your Wishlist and click "Add to Cart" when you are happy to proceed.</p>
+    <table class="basket-table" *ngIf='products && products.length'>
+      <thead class="panel-head">
+        <tr>
+          <th class="description">
+            Items
+          </th>
+          <th class="price">
+            Description
+          </th>
+          <th class="quantity">
+            Price
+          </th>
+          <th class="subtotal">
+  
+          </th>
+          <th>
+            &nbsp;
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let product of products'>
+          <td class="description">
+            <div>
+              <!-- <img [src]="product.imageUrl"> -->
+            </div>
+            <div>
+              {{product.productName}}
+            </div>
+          </td>
+          <td class="price">
+            {{product.productDescription}}
+          </td>
+          <td class="quantity">
+            {{product.productPrice}}
+          </td>
+  
+          <td style="max-width: 20%">
+            <button type="button" class="add" (click)='addToCart(product.productId)'>Add to Cart</button></td>
+          <td style="max-width: 20%"><button type="button" (click)='remove(product.productId)' class="remove">Remove</button></td>
+  
+        </tr>
+  
+  
+  
+      </tbody>
+      <tfoot>
+  
+      </tfoot>
+    </table>
+  
+  </div>
