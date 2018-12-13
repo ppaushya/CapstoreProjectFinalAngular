@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, OnDestroy, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from '../../pojo/cart';
 import { Product } from '../../pojo/product';
 import { Wishlist } from '../../pojo/wishlist';
@@ -25,7 +25,7 @@ export class MainHeaderComponent implements OnInit{
   
 
   constructor(public el: ElementRef,private appService: AppService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute, private router:Router) {
   }
 
   ngOnInit() {
@@ -37,6 +37,41 @@ export class MainHeaderComponent implements OnInit{
 
   
   }
+
+
+  changePassword()
+{
+  let element:HTMLElement =document.getElementById("click");
+  element.click();
+  this.router.navigate(['/auth/changePassword'])
+}
+
+viewProfile()
+
+{
+  let element:HTMLElement =document.getElementById("click");
+  element.click();
+  this.router.navigate(['/auth/view-profile'])
+}
+
+logout()
+{
+  
+  this.mailId="";
+  let element:HTMLElement=document.getElementById('click');
+  element.click();
+ this.router.navigate(['/home']);
+  
+}
+
+myOrders()
+{
+  let element:HTMLElement =document.getElementById("click");
+  element.click();
+  this.router.navigate(['/auth/my-orders'])
+}
+
+
 
 
 }

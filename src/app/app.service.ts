@@ -13,6 +13,7 @@ import { Address } from './pojo/address';
 import { IShipment } from './pojo/shipment';
 import { BankAccount } from './pojo/bankaccount';
 import { Card } from './pojo/card';
+import { Invoice } from './pojo/invoice';
 
 
 
@@ -227,21 +228,21 @@ export class AppService {
   comparepassword(password:String):Observable<boolean>{
    
    
-    return this.http.post<boolean>(this.Url+"customerPasswordMatch/"+this.emailId,password,{})
+    return this.http.post<boolean>(this.Url+"/customerPasswordMatch/"+this.emailId,password,{})
   }
    changepassword(password:String):Observable<boolean>{
-      return this.http.post<boolean>(this.Url+"customerPasswordChange/"+this.emailId,password,{})
+      return this.http.post<boolean>(this.Url+"/customerPasswordChange/"+this.emailId,password,{})
   }
  
   //customerProfile
  
   getCustomer1 (): Observable<Customer> {
-   return this.http.get<Customer>(this.Url+"getCustomer/"+this.emailId)
+   return this.http.get<Customer>(this.Url+"/getCustomers/"+this.emailId)
  }
  
  getAddresses (): Observable<Address[]> {
    
-   return this.http.get<Address[]>(this.Url+"address/"+this.emailId)
+   return this.http.get<Address[]>(this.Url+"/address/"+this.emailId)
  }
  
  updateAddress(address)
@@ -262,12 +263,12 @@ export class AppService {
      console.log("in address service");
      console.log(this.emailId);
      console.log(addressMaster);
-     return this.http.post<Address[]>(this.Url+"updateAddresses",addressMaster,{});
+     return this.http.post<Address[]>(this.Url+"/updateAddresses",addressMaster,{});
    }
  
  
    updatemobile(customer:Customer): Observable<Boolean>  {
-     return this.http.put<Boolean>(this.Url+"updatemobile/"+this.emailId,customer);
+     return this.http.put<Boolean>(this.Url+"/updatemobile/"+this.emailId,customer);
   
  }
  
@@ -316,14 +317,14 @@ getBankAccountFromCredential(account: BankAccount):Observable<BankAccount>{
 getCardFromNumber(cardNumber: number):Observable<Card>{
     return this.http.get<Card>(this.Url+'/card/number/'+cardNumber);
 }
-payByBankAccount(account: BankAccount,orderId:number):Observable<boolean>{
-    return this.http.post<boolean>(this.Url+'/transaction/order/'+orderId+'/pay/bankaccount',account);
+payByBankAccount(account: BankAccount,orderId:number):Observable<Invoice>{
+    return this.http.post<Invoice>(this.Url+'/transaction/pay/bankaccount/order/'+orderId,account);
 }
-payByCard(card: Card,orderId:number):Observable<boolean>{
-    return this.http.post<boolean>(this.Url+'/transaction/order/'+orderId+'/pay/card',card);
+payByCard(card: Card,orderId:number):Observable<Invoice>{
+    return this.http.post<Invoice>(this.Url+'/transaction/pay/card/order/'+orderId,card);
 }
-payByCash(orderId:number):Observable<boolean>{
-    return this.http.post<boolean>(this.Url+'/transaction/order/'+orderId+'/pay/cash',null);
+payByCash(orderId:number):Observable<Invoice>{
+    return this.http.post<Invoice>(this.Url+'/transaction/pay/cash/order/'+orderId,null);
 }
 
 

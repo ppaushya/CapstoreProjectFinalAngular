@@ -58,23 +58,28 @@ export class PaymentComponent implements OnInit {
   payAmount(){
     switch(this.paymentType){
       case 1:
+      console.log(this.appService.getProductOrder());
+      console.log(this.card);
       this.appService.payByCard(this.card,this.appService.getProductOrder().orderId).subscribe(
-        success => {
-          console.log(success);
+        invoice => {
+          console.log(invoice);
         }
       );
         break;
       case 2:
+      console.log(this.appService.getProductOrder());
+      //this.appService.getBankAccountFromCredential()
       this.appService.payByBankAccount(this.account,this.appService.getProductOrder().orderId).subscribe(
-        success => {
-          console.log(success);
+        invoice => {
+          console.log(invoice);
         }
       );
         break;
       case 3:
+      console.log(this.appService.getProductOrder());
       this.appService.payByCash(this.appService.getProductOrder().orderId).subscribe(
-        success => {
-          console.log(success);
+        invoice => {
+          console.log(invoice);
         }
       );
         break;

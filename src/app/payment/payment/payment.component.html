@@ -43,7 +43,7 @@
                       <label class="required">Card Number:</label>
                     </div>
                     <div class="container">
-                      <input type="text" [uiInput] [(ngModel)]="inputModel"
+                      <input type="text" [(ngModel)]="inputModel3"
                       name="cardNumber" size="4" required [(ngModel)]='card.cardNumber' #cardNumberControl="ngModel"
                       class="form-control">
                     </div>
@@ -53,7 +53,7 @@
                       <label class="required">Card Holder Name:</label>
                     </div>
                     <div class="container">
-                      <input type="text" [uiInput] [(ngModel)]="inputModel"
+                      <input type="text"[(ngModel)]="inputModel4"
                        name="cardHolderName" size="20" required [(ngModel)]='card.cardHolderName'
                       #cardHolderName="ngModel" class="form-control">
                     </div>
@@ -63,8 +63,8 @@
                       <label class="required">CVV:</label>
                     </div>
                     <div class="container">
-                      <input type="text" [uiInput] [(ngModel)]="inputModel"
-                      name="cvv" size="20" required [(ngModel)]='card.CVV' #cvv="ngModel"
+                      <input type="text"  [(ngModel)]="inputModel5"
+                      name="cvv" size="20" required [(ngModel)]='card.cvv' #cvv="ngModel"
                       class="form-control">
                     </div>
                   </div>
@@ -73,7 +73,7 @@
                       <label>PIN:</label>
                     </div>
                     <div class="container">
-                      <input type="text" [uiInput] [(ngModel)]="inputModel"
+                      <input type="text"  [(ngModel)]="inputModel6"
                       name="pin" size="20" required [(ngModel)]='card.pinNumber' #pin="ngModel"
                       class="form-control">
                     </div>
@@ -96,7 +96,7 @@
                 <label class="required">User Name:</label>
               </div>
               <div class="container">
-                <input type="text" [uiInput] [(ngModel)]="inputModel1" 
+                <input type="text"[(ngModel)]="inputModel1" 
                 [(ngModel)]='account.userName'>
               </div>
             </div>
@@ -106,7 +106,7 @@
               </div>
               
               <div class="container">
-                <input type="text" [uiInput] [(ngModel)]="inputModel2"
+                <input type="text" [(ngModel)]="inputModel2"
                 [(ngModel)]='account.userPassword'>
               </div>
             </div>
@@ -123,7 +123,7 @@
             <div class="delivery-option">
               <div class="field radio">
                 <label>
-                  <input type="radio" value="1" [uiInput] [(ngModel)]="radioModel">
+                  <input type="radio" value="1" [(ngModel)]="radioModel">
                   Pay by Cash on Delivery<br>
                 </label>
               </div>

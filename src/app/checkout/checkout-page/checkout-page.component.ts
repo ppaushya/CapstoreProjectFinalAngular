@@ -58,9 +58,9 @@ export class ShipmentComponent implements OnInit {
 
     placeOrder(){
         this.appService.placeOrder(this.order).subscribe(
-            success => {
-                console.log(success);
-                this.appService.setProductOrder(this.order);
+            newOrder => {
+                console.log(newOrder);
+                this.appService.setProductOrder(newOrder);
              this.router.navigate(['/payment']);
             }
         );
