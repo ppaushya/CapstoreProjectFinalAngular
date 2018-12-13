@@ -12,9 +12,43 @@
     <!-- <div  align= "center" routerLink="/">Welcome to Online shoping</div>&nbsp;&nbsp; -->
     <div class="account">
        
-      <a routerLink="/auth/sign-in">
-        <kit-icon [name]="'avatar'" size="25px"></kit-icon>
-      </a>
+      <a href="//localhost:4200"> <kit-icon [name]="'avatar'" size="25px" *ngIf="mailId==''"></kit-icon></a>
+
+
+<a href="#myModal" role="button" data-toggle="modal" *ngIf="mailId!=''">
+    <kit-icon [name]="'avatar'" size="25px"></kit-icon>
+</a>
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"  >
+        <div class="modal-dialog" >
+          <div class="modal-content" style="background:#333434">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel" ></h3>
+            </div>
+            <div class="modal-body">
+              <form>
+                  <div class="form-group">
+                      <a (click)="viewProfile()">View Profile</a>
+                    </div>
+                  <div class="form-group">
+                      <a (click)="changePassword()"  >Change Password</a><br>
+                  </div>
+                 
+                  <div class="form-group">
+                    <a (click)="myOrders()">My Orders</a><br>
+                  </div>
+                  <div class="form-group">
+                      <a (click)="logout()">Logout</a><br>
+                    </div>
+                  
+            </form>
+            </div>
+            <div class="modal-footer">
+              <button class="btn" id="click" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
       <a routerLink="/bag">
         <kit-icon [name]="'shopping-cart'" size="25px"></kit-icon>
         <label>{{countincart}}</label>

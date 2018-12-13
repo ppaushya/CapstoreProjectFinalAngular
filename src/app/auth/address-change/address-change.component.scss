@@ -1,0 +1,140 @@
+@import "params";
+@import "common";
+
+:host {
+  margin: $grid*6 0;
+}
+
+.login-panel {
+  border: 1px solid $mercuryColor;
+  box-sizing: border-box;
+  box-shadow: 0 0 6px 0 rgba(225, 225, 225, 0.7);
+  border-radius: 4px;
+  margin: 0 auto;
+  padding: $grid*2.5;
+  width: 70%;
+}
+
+.title {
+  font-weight: 400;
+  font-size: 1.9rem;
+  margin: 0 0 $grid*8 0;
+  text-align: center;
+}
+
+form {
+  margin-top: $grid*5;
+  width: 80%;
+  > div {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+label {
+  display: block;
+  flex-shrink: 0;
+  font-size: 1rem;
+  margin-bottom: $grid*1.5;
+  width: 200px;
+}
+
+
+.forgotten-password {
+  text-align: center;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.login-box {
+  margin: $grid*2.5 0;
+  text-align: center;
+}
+
+.login {
+  background: $primaryColor;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  font-weight: bold;
+  height: 40px;
+  width: 100px;
+  border-radius: 5px;
+  // padding: 0 $grid*3;
+  // text-transform: uppercase;
+  &:hover{
+    box-shadow: 0 5px 30px rgba(79, 70, 228, 0.8);
+  }
+  
+}
+
+.policy {
+  font-size: 0.8rem;
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+}
+@media (max-width: 900px) {
+  .login-panel{
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+form{
+  width: 100%;
+}
+  label{
+    width: 120px;
+  }
+}
+@media (max-width: 400px) {
+form{
+  >div{
+    flex-direction: column;
+  }
+}
+}
+
+.second 
+{
+  padding-left: 70px;
+  padding-right: 30px;
+  
+}
+
+table{
+  margin-left: 300px;
+}
+
+// #textbox{
+//  margin-radius:12px;
+// }
+
+
+// button{
+
+//   margin-radius:12px;
+//   background-color: beige;
+// }
+
+#title1{
+
+  margin-left:300px;
+}
+
+.textboxA{
+
+  border-radius: 12px;
+  border-color: gray;
+}
+
+button{
+
+  border-radius: 12px;
+  background-color:lightcyan;
+}
+

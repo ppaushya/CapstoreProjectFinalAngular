@@ -9,6 +9,10 @@ import { FeedBack } from './pojo/feedback';
 import { Wishlist } from './pojo/wishlist';
 import { Customer } from './pojo/customer';
 import { ProductOrder } from './pojo/order';
+import { Address } from './pojo/address';
+import { IShipment } from './pojo/shipment';
+import { BankAccount } from './pojo/bankaccount';
+import { Card } from './pojo/card';
 
 
 
@@ -24,8 +28,10 @@ const httpOptions = {
 export class AppService {
 
 
+    address : Address=new Address()
+    customers: Customer[];
 
-
+    order: ProductOrder = new ProductOrder();
 
     private Url = "http://10.138.150.215:8083/capstore/api/v1";
 
@@ -57,6 +63,11 @@ export class AppService {
     cartcount(): Observable<Cart[]> {
 
         return this.http.get<Cart[]>(this.Url + '/cartcount');
+    }
+
+    getCart(): Observable<Cart> {
+
+        return this.http.get<Cart>(this.Url + '/getCart/'+'virat@gmail.com');
     }
 
 
@@ -201,20 +212,119 @@ export class AppService {
 
 
     //-----------------------------ORDER----------------------------------
-    // checkAvailability(order: ProductOrder): Observable<boolean> {
-    //     return this.http.post<boolean>(this.Url + "/order/", order); //
-    // }
-    // placeOrder(order: ProductOrder): Observable<ProductOrder> {
-    //     return this.http.post<ProductOrder>(this.Url + "/order/", order); //
-    // }
+    checkAvailability(order: ProductOrder): Observable<boolean> {
+        return this.http.post<boolean>(this.Url + "/checkAvailabilityInInventory", order); //
+    }
+    placeOrder(order: ProductOrder): Observable<ProductOrder> {
+        return this.http.post<ProductOrder>(this.Url + "/placeOrder/", order); //
+    }
 
 
 
 
+     //changePassword
+
+  comparepassword(password:String):Observable<boolean>{
+   
+   
+    return this.http.post<boolean>(this.Url+"customerPasswordMatch/"+this.emailId,password,{})
+  }
+   changepassword(password:String):Observable<boolean>{
+      return this.http.post<boolean>(this.Url+"customerPasswordChange/"+this.emailId,password,{})
+  }
+ 
+  //customerProfile
+ 
+  getCustomer1 (): Observable<Customer> {
+   return this.http.get<Customer>(this.Url+"getCustomer/"+this.emailId)
+ }
+ 
+ getAddresses (): Observable<Address[]> {
+   
+   return this.http.get<Address[]>(this.Url+"address/"+this.emailId)
+ }
+ 
+ updateAddress(address)
+ {
+   this.address=address;
+   console.log(this.emailId);
+ }
+ getAddress():Address{
+   //console.log(this.address);
+  return this.address;
+ }
+ 
+ 
+  updateadd(addressMaster:Address): Observable<Address[]>
+   {
+     console.log(this.address)
+     
+     console.log("in address service");
+     console.log(this.emailId);
+     console.log(addressMaster);
+     return this.http.post<Address[]>(this.Url+"updateAddresses",addressMaster,{});
+   }
+ 
+ 
+   updatemobile(customer:Customer): Observable<Boolean>  {
+     return this.http.put<Boolean>(this.Url+"updatemobile/"+this.emailId,customer);
+  
+ }
+ 
 
 
 
+//---------------------------Deliver address-----------------------
 
+setProductOrder(order:ProductOrder){
+    this.order = order; 
+}
+
+getProductOrder(){
+    return this.order;
+}
+
+getAllAddress(): Observable<Address[]>{
+    console.log("Service1245");
+    console.log(this.Url+'/address/'+this.emailId);
+   return this.http.get<Address[]>(this.Url+'/address/'+'virat@gmail.com'); //TODO
+  
+}
+
+saveAllShipments(shipments:IShipment):Observable<boolean>{
+    return this.http.post<boolean>(this.Url+'/address/'+'virat@gmail.com',shipments); //TODO
+}
+
+// getCart(): Observable<Cart>{
+//     console.log("Service")
+//    return this.http.get<Cart>(this.Url+"/"+'701');
+  
+// }
+
+
+createaddress(address:Address):Observable<Address[]>
+{
+ console.log("sdkhfh");
+   return  this.http.post<Address[]>(this.Url+'/address'+this.emailId,address,{}) 
+
+}
+
+//------------------------------PAYMENT----------------------------
+getBankAccountFromCredential(account: BankAccount):Observable<BankAccount>{
+    return this.http.get<BankAccount>(this.Url+'/bankaccount/credential');
+}
+getCardFromNumber(cardNumber: number):Observable<Card>{
+    return this.http.get<Card>(this.Url+'/card/number/'+cardNumber);
+}
+payByBankAccount(account: BankAccount,orderId:number):Observable<boolean>{
+    return this.http.post<boolean>(this.Url+'/transaction/order/'+orderId+'/pay/bankaccount',account);
+}
+payByCard(card: Card,orderId:number):Observable<boolean>{
+    return this.http.post<boolean>(this.Url+'/transaction/order/'+orderId+'/pay/card',card);
+}
+payByCash(orderId:number):Observable<boolean>{
+    return this.http.post<boolean>(this.Url+'/transaction/order/'+orderId+'/pay/cash',null);
+}
 
 
 

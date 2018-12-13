@@ -4,6 +4,7 @@ import { Product } from '../../pojo/product';
 import { ProductImage } from '../../pojo/productimage';
 import { AppService } from '../../app.service';
 import { CartProduct } from '../../pojo/cardproduct';
+import { FeedBack } from '../../pojo/feedback';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class ViewPageComponent implements OnInit {
   cartProduct: CartProduct = new CartProduct();
   images:ProductImage[];
   sub: any;
+  feedbacks:FeedBack[] = [];
 
   constructor( private route: ActivatedRoute,
     private appService: AppService) {
@@ -56,6 +58,7 @@ export class ViewPageComponent implements OnInit {
       this.cartProduct.customer = this.appService.getCustomer();
       this.getSimilarProducts(this.product.brand,this.product.productCategory);
       this.getProductRating(id);
+      this.getfeedback();
       });
           
     }
@@ -93,5 +96,9 @@ export class ViewPageComponent implements OnInit {
 
     }
 
-
+    getfeedback():void{
+      this.appService.getAllfeedbacks(this.product.productId)
+      .subscribe(feeds=>{this.feedbacks=feeds;});
+      
+      }
 }

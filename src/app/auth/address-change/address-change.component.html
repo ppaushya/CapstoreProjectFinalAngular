@@ -1,0 +1,44 @@
+
+<div  id="title1"><h2>Change your address here!</h2></div>
+<form #addressForm="ngForm">
+<table>
+  <tr>
+<td>  <label >Address Line 1:</label>
+  <input   [uiInput] name="addressLine1"  [(ngModel)]="address.addressLine1" required #address1="ngModel" maxlength="70" class="textboxA" >
+</td>
+<td  class="second">
+  <label>Address Line 2:</label>
+  <input [uiInput]  name="addressLine2" [(ngModel)]="address.addressLine2"  class="textboxA">
+</td></tr>
+
+<tr><td><span class="help-block col-sm-offset-4" *ngIf="address1.invalid && address1.touched" style=" font-size:13px;color:red">
+    *Please Enter Address
+ </span></td></tr>
+<tr><td> 
+    <label>City:</label>
+  <input [uiInput]  name="city" [(ngModel)]="address.city"  required #city1="ngModel" class="textboxA">
+</td>
+<td  class="second">
+  <label >State:</label>
+  <input [uiInput]  name="state" [(ngModel)]="address.state"  required #state1="ngModel" class="textboxA" >
+</td></tr>
+
+<tr><td><span class="help-block col-sm-offset-4" *ngIf="city1.invalid && city1.touched" style=" font-size:13px;color:red">
+    *Please Enter City
+ </span></td>
+ <td class="second"><span class="help-block col-sm-offset-4" *ngIf="state1.invalid && state1.touched" style=" font-size:13px;color:red" >
+    *Please Enter State
+ </span></td></tr>
+  <label>Pincode:</label>
+  <input [uiInput] name="pincode" [(ngModel)]="address.pincode" required #pincode1="ngModel" pattern="[0-9]{6}" class="textboxA">
+<span class="help-block col-sm-offset-4" *ngIf="pincode1.invalid && pincode1.touched" style=" font-size:13px;color:red"  >
+    *Please Enter Valid Pincode of length 6
+ </span>
+ <br>
+ <br>
+ <button [disabled]="addressForm.invalid" (click)="updateaddress()" >Update</button>
+</table>
+</form>
+
+
+ 

@@ -1,0 +1,47 @@
+<div class="title"><h2 > Customer Profile </h2> </div>
+<br>
+<br>
+<div id="content">
+
+<div class="fname">
+
+  <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First Name:</b>
+  <br>
+  
+  &nbsp; &nbsp; {{customer.firstName}}
+  
+  </div>
+  <br>
+<div class="lname">
+  <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last Name:</b>
+  <br>
+  &nbsp; &nbsp; {{customer.lastName}}
+</div>
+<br>
+<div class="mobileNo">
+  <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mobile Number:</b>
+  <button class="edit1" routerLink="../mobileedit">edit</button>
+  <br>
+  &nbsp; &nbsp; {{customer.mobileNumber}}
+</div>
+<br>
+<div class="emailId">
+  <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmailId:</b>
+  <br>
+  &nbsp; &nbsp; {{customer.emailId}}
+</div>
+<br>
+</div>
+
+<div class="address">
+  <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address:</b>
+  <div *ngFor = "let address of addresses">
+
+  <button class="edit2" routerLink="../addresschange" (click)=updateAddress(address)>edit</button>
+  
+  &nbsp; &nbsp;{{address.addressLine1}},{{address.addressLine2}},{{address.city}},
+  {{address.state}},{{address.pincode}}.
+</div>
+
+
+</div>

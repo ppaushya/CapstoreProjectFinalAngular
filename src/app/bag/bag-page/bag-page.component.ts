@@ -5,6 +5,7 @@ import { CartProduct } from '../../pojo/cardproduct';
 import { Observable } from 'rxjs';
 import { AppService } from '../../app.service';
 import { ProductOrder } from '../../pojo/order';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bag-page',
@@ -14,7 +15,7 @@ import { ProductOrder } from '../../pojo/order';
 export class BagPageComponent implements OnInit {
 
   // products:Product[]=[];
-  // cart:Cart=new Cart();
+  cart:Cart=new Cart();
   cartProducts: CartProduct[]=[];
   //quantity:number=0;;
   shippingCharge:number=0;
@@ -23,8 +24,10 @@ export class BagPageComponent implements OnInit {
   custId:number=701;
   
   order: ProductOrder = new ProductOrder();
+  isAllProductAvailable: boolean = false;
+  showUnavailableMessage: boolean = false;
 
-  constructor(private appService: AppService) {
+  constructor(private appService: AppService,private router:Router) {
     
    }
 
@@ -74,11 +77,22 @@ export class BagPageComponent implements OnInit {
             return 0;
   }
 
-  // checkAvailability(){
-  //   this.appService.checkAvailability(this.order).subscribe(
-  //     available => {
-  //       console.log(available);
-  //     }
-  //   );
-  // }
+  checkAvailability(){
+    this.order.customer = this.appService.getCustomer();
+    this.cart.cartProducts = this.cartProducts;
+    this.order.cart = this.cart;
+    console.log(this.order);
+    this.appService.checkAvailability(this.order).subscribe(
+      available => {
+        this.isAllProductAvailable = available;
+        if(available){
+          console.log(available);
+          this.appService.setProductOrder(this.order);
+          this.router.navigate(['/checkout']);
+        }else{
+          this.showUnavailableMessage = true;
+        }
+      }
+    );
+  }
 }

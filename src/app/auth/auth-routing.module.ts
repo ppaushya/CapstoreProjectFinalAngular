@@ -1,24 +1,32 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
-import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
-import { ForgotPasswordComponent } from './forgot-Password/forgot-Password.component';
+
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { CutsomerProfileComponent } from './cutsomer-profile/cutsomer-profile.component';
+import { MobileEditComponent } from './mobile-edit/mobile-edit.component';
+import { AddressChangeComponent } from './address-change/address-change.component';
 
 
 const routes: Routes = [
+  
+  
   {
-    path: 'sign-in',
-    component: SignInPageComponent,
-    
+    path:'changePassword',
+    component: ChangePasswordComponent
   },
   {
-    path: 'sign-up',
-    component: SignUpPageComponent,
+    path: 'view-profile',
+    component: CutsomerProfileComponent
   },
   {
-    path: 'forgot-password',
-    component: ForgotPasswordComponent,
+    path: 'mobileedit',
+    component: MobileEditComponent
+  },
+  {
+    path: 'addresschange',
+    component: AddressChangeComponent
   }
+
 
   
 

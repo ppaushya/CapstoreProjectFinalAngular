@@ -41,7 +41,15 @@
     </div>
   </div>
   <div><h4>Ratings & Reviews:</h4>
-    <app-feedback [product]="product"></app-feedback> 
+    <!-- <app-feedback [product]="product"></app-feedback>  -->
+    <div class="feedback">
+      <div *ngFor="let feed of feedbacks" >
+    
+        <div> <b>Rating: {{feed.ratingProduct}}</b> <ui-rating [value]="feed.ratingProduct"></ui-rating></div>
+        <div>{{feed.comment}}</div>
+      
+      </div>
+    </div> 
   </div>
   <div class="recently-viewed">
     <h4>Similar products:</h4>

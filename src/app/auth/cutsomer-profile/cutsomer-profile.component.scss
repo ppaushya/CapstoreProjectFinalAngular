@@ -1,0 +1,50 @@
+.fname,.lname,.emailId,.mobileNo,.address{
+    height:60px;
+    width: 50%;
+    border:1px solid chocolate;
+margin-left: 320px;
+border-radius:12px;
+
+
+}
+
+
+#content{
+    align-content:center;
+}
+
+
+.title{
+    display: inline-block;
+text-align: center;
+width: 50%;
+border: 2px solid darkgreen;
+
+border-radius: 12px;
+margin-left: 320px;
+background-color: gainsboro;
+ 
+}
+
+
+.edit1{
+    float:right;
+    height:30px;
+    width:60px;
+    margin-top:5px;
+    margin-right:10px;
+    background-color:blanchedalmond;
+    border-radius: 5px;
+
+}
+
+.edit2{
+    float:right;
+    height:30px;
+    width:60px;
+   
+    margin-right:10px;
+    background-color:blanchedalmond;
+    border-radius: 5px;
+
+}
