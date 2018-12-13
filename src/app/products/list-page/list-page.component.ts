@@ -73,7 +73,7 @@ export class ListPageComponent implements OnInit {
  
    
  
-
+    
     private applyFilter(category) {
       console.log(this.category+"Main hoon");
 

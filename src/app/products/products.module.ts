@@ -9,6 +9,8 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { SortComponent } from './sort/sort.component';
 import { ViewPageComponent } from './view-page/view-page.component';
 import { ListPagePipe } from './list-page/list-page.pipe';
+import { FeedbackComponent } from './feedback/feedback.component';
+
 
 @NgModule({
   imports: [
@@ -23,6 +25,7 @@ import { ListPagePipe } from './list-page/list-page.pipe';
     SortComponent,
     CardComponent,
     ListPagePipe,
+    FeedbackComponent,
     
   ],
   exports: [ListPagePipe]

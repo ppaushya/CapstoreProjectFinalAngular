@@ -38,6 +38,7 @@ import { CustomerService } from './servicelayer/customer/customer.service';
 import { SignInPageService } from './auth/sign-in-page/sign-in-page.service';
 import { AppService } from './app.service';
 import { ProductService } from './servicelayer/product/product.service';
+import { ShipmentComponent } from './shipment/shipment.component';
 
 
 export function hammerConfigFactory() {
@@ -69,6 +70,7 @@ export function hammerConfigFactory() {
   declarations: [
     AppComponent,
     TrackComponent,
+    ShipmentComponent,
   ],
   providers: [
     SortService,
@@ -84,7 +86,6 @@ export function hammerConfigFactory() {
     CartproductService,
     CartService,
     AddressService,
-    FeedbackService,
     InvoiceService,
     CouponService,
     ReturnService,
@@ -96,7 +97,8 @@ export function hammerConfigFactory() {
     BankaccountService,
     CustomerService,
     SignInPageService,
-    AppService
+    AppService,
+    
 
   ],
   bootstrap: [AppComponent],

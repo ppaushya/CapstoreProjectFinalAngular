@@ -65,6 +65,11 @@ getbestSellers(category):Observable<Product[]>{
 
 return this.http.get<Product[]>(this.sortUrl+'/'+category+"/"+"BestSeller");
 }
+getProductRating(productId:number):any{
+    
+     return this.http.get<any>(this.sortUrl+'/getProductRating/'+productId);
+    
+    } 
 
 inRange(category,min,max):Observable<Product[]>{
 

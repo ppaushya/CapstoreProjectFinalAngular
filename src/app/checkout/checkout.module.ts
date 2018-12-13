@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CheckoutRoutingModule } from './checkout-routing.module';
-import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
+
 import { UiModule } from '../ui/ui.module';
 import { FormsModule } from '@angular/forms';
+import { ShipmentComponent } from './checkout-page/checkout-page.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { FormsModule } from '@angular/forms';
     UiModule,
     FormsModule,
   ],
-  declarations: [CheckoutPageComponent],
+  declarations: [ShipmentComponent],
 })
 export class CheckoutModule {
 }

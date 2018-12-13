@@ -1,6 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../pojo/product';
+import { ProductImage } from '../../pojo/productimage';
+import { ProductService } from '../../servicelayer/product/product.service';
+import { Inventory } from '../../pojo/inventory';
+import { Promo } from '../../pojo/promo';
+import { Observable } from 'rxjs';
+import { SortService } from '../sort/sort.service';
+
 
 @Component({
   selector: 'app-view-page',
@@ -9,38 +16,47 @@ import { Product } from '../../pojo/product';
 })
 export class ViewPageComponent implements OnInit {
   color: any;
-
+  productRating: number;
   size: any;
 
-  product: Product;
+   product: Product=new Product;
 
   recent: Product[];
-
+  images:ProductImage[];
   sub: any;
 
-  constructor( private route: ActivatedRoute) {
+  constructor( private route: ActivatedRoute,private productService:ProductService,private sortService:SortService
+              ) {
   }
 
   ngOnInit() {
-    
+
     // this.route.params.subscribe(params => {
     //   this.product = this.data.products.find(p => p.id === parseInt(params.id, 10));
     //   this.recent = this.data.products.slice(0, 4);
     // });
+    this.route.params.subscribe(params => {this.getProduct(params.id);
+      this.getImages(params.id);     
+  });
+ 
   }
-
-
-
+  getImages(productId){
+    this.productService.getImages(productId).subscribe(imgs=>this.images=imgs);
+    } 
+  getSimilarProducts(brand,productCategory){
+    this.productService.getSimilarProducts(brand,productCategory).subscribe(pros=>this.recent=pros);
+  }
+  getProduct(id:number){
+    console.log(id)
+    console.log('befor'+this.product);
+    this.productService.getProduct(id).subscribe(product=>this.product=product);
+    console.log(this.product.productCategory);
+    this.getSimilarProducts(this.product.brand,this.product.productCategory);
+    this.getProductRating(id);
+  }
+  getProductRating(product_Id:number){
+    console.log(product_Id+"  ejgfwuqwdg");
   
-
-
-
-
-
-
-
-
-
-
-
+     this.sortService.getProductRating(product_Id).subscribe(rating=>{this.productRating=rating;console.log(rating+"ejgfwuqwdg")});
+    }
 }
