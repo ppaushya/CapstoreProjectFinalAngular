@@ -23,19 +23,16 @@ product:Product = new Product;
 
   
   getproductswithcategory(category):Observable<Product[]>{
-  
-  return  this._http.get<Product[]>(this.productUrl+'/'+category);
-  
- }
- getImages(productId):Observable<ProductImage[]>{
-  return this._http.get<ProductImage[]>(this.productUrl+'/images'+"/"+productId);
+    return  this._http.get<Product[]>(this.productUrl+'/'+category);
+  }
+  getImages(productId):Observable<ProductImage[]>{
+      return this._http.get<ProductImage[]>(this.productUrl+'/images'+"/"+productId);
   } 
   getProduct(productId):Observable<Product>{
-    return this._http.get<Product>(this.productUrl+'/product/'+productId)
-    .do(data=>console.log('All :' + JSON.stringify(data)));
+    return this._http.get<Product>(this.productUrl+'/product/'+productId);
   }
   getSimilarProducts(brand:string,productCategory:string){
-    return this._http.get<Product[]>(this.productUrl+'/similarProduct/'+brand+productCategory);
+    return this._http.get<Product[]>(this.productUrl+'/similarProduct/'+brand+"/"+productCategory);
   }
 
   getAllfeedbacks(productId):Observable<FeedBack[]>{

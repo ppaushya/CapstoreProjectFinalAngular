@@ -19,9 +19,10 @@ export class ViewPageComponent implements OnInit {
   productRating: number;
   size: any;
 
-   product: Product=new Product;
-
-  recent: Product[];
+   product: Product=new Product();
+  recent: Product[] = [
+    
+  ];
   images:ProductImage[];
   sub: any;
 
@@ -30,13 +31,11 @@ export class ViewPageComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    // this.route.params.subscribe(params => {
-    //   this.product = this.data.products.find(p => p.id === parseInt(params.id, 10));
-    //   this.recent = this.data.products.slice(0, 4);
-    // });
-    this.route.params.subscribe(params => {this.getProduct(params.id);
-      this.getImages(params.id);     
+    this.route.params.subscribe(params => {
+      this.getProduct(params.id);
+      this.getImages(params.id);
+     
+      
   });
  
   }
@@ -44,19 +43,20 @@ export class ViewPageComponent implements OnInit {
     this.productService.getImages(productId).subscribe(imgs=>this.images=imgs);
     } 
   getSimilarProducts(brand,productCategory){
-    this.productService.getSimilarProducts(brand,productCategory).subscribe(pros=>this.recent=pros);
+    this.productService.getSimilarProducts(brand,productCategory).subscribe(pros=>{
+      this.recent=pros;
+    });
   }
   getProduct(id:number){
-    console.log(id)
-    console.log('befor'+this.product);
-    this.productService.getProduct(id).subscribe(product=>this.product=product);
-    console.log(this.product.productCategory);
+    this.productService.getProduct(id).subscribe(product=>{
+      this.product=product;
     this.getSimilarProducts(this.product.brand,this.product.productCategory);
     this.getProductRating(id);
+    });
+        
   }
   getProductRating(product_Id:number){
-    console.log(product_Id+"  ejgfwuqwdg");
   
-     this.sortService.getProductRating(product_Id).subscribe(rating=>{this.productRating=rating;console.log(rating+"ejgfwuqwdg")});
+     this.sortService.getProductRating(product_Id).subscribe(rating=>{this.productRating=rating;});
     }
 }

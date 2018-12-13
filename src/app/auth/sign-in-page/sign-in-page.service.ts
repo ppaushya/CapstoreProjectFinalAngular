@@ -28,13 +28,10 @@ export class SignInPageService {
 
   setauthenticate(str)
   {
-    console.log("userinauthenticate")
     this.userauthenticate=str;
-    console.log(this.userauthenticate);
   }
 
   getauthenticate():boolean{
-    console.log("useringetauthenticatemanner")
     return this.userauthenticate;
   }
 

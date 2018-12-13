@@ -36,7 +36,7 @@ export class ShipmentComponent implements OnInit {
     addAddress() {
 
         this.shipmentservice.createaddress(this.address).subscribe(res=>console.log(res));
-        console.log("added")
+        window.location.reload();
 
     }
 

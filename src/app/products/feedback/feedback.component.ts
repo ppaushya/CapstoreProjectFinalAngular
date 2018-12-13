@@ -42,10 +42,8 @@ feedbacks:FeedBack[]=[{
   }
 
 getfeedback():void{
-  // this.product=this.feedbackService.getProduct();
-   console.log(this.product.productId+"in getfeedback")
 this.productService.getAllfeedbacks(this.product.productId)
-.subscribe(feeds=>{this.feedbacks=feeds;console.log(feeds)});
+.subscribe(feeds=>{this.feedbacks=feeds;});
 
 }
 }

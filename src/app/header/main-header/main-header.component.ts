@@ -43,15 +43,12 @@ export class MainHeaderComponent implements OnInit{
 
 login():boolean{
 
-  console.log(this.isLoggedIn);
-  console.log("loginpage")
   return this.signinservice.getauthenticate();
 
 }
 
 logout()
 {
-  console.log("logout");
   this.isLoggedIn=false;
   window.location.reload();
   
