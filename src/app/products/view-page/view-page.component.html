@@ -1,4 +1,4 @@
-<div *ngFor="let fg of product">
+<div>
 <div class="main-wrapper">
   <div class="product-box">
     <div class="product-preview">
@@ -12,11 +12,11 @@
       
     </div>
     <div class="product-info">
-      <div class="title"><h3>{{ fg.productName }}</h3></div>
-      <div class="sub-title">{{ fg.productDescription }}</div>
+      <div class="title"><h3>{{ product.productName }}</h3></div>
+      <div class="sub-title">{{ product.productDescription }}</div>
       <div class="price-box">
         <div class="price">
-          Rs.{{ fg.productPrice }}
+          Rs.{{ product.productPrice }}
         </div>
         <div class="rating">
          avg-rating <ui-rating [value]="productRating"></ui-rating>
@@ -40,7 +40,7 @@
     </div>
   </div>
   <div><h4>Ratings & Reviews:</h4>
-    <app-feedback [product]="fg"></app-feedback> 
+    <app-feedback [product]="product"></app-feedback> 
   </div>
   <div class="recently-viewed">
     <h4>Similar products:</h4>
