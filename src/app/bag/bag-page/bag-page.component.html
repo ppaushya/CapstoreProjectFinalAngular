@@ -1,10 +1,18 @@
 <div class="main-wrapper">
-  <h1>Your Shopping Basket</h1>
-  <p>Please review the contents of your basket and click "checkout securely now" when you are happy to proceed.</p>
-  <table class="basket-table">
+  <h1>Shopping Basket</h1>
+  <p>Please click "checkout securely now" to proceed.</p>
+
+
+
+  <!-- <img src="{{fileUploads}}" alt="moulya" style="max-width:350px" /> -->
+         
+  <table class="basket-table" *ngIf='cartProducts && cartProducts.length '>
     <thead class="panel-head">
     <tr>
-      <th class="description">
+      <th  style="text-align: center">
+            Product
+      </th>
+      <th class="description" style="text-align: center">
         Items
       </th>
       <th class="price">
@@ -16,18 +24,62 @@
       <th class="subtotal">
         Subtotal
       </th>
-      <th class="remove">
-        &nbsp;
+      <th >
+        Update
       </th>
+      <th class="remove">Delete</th>
     </tr>
     </thead>
     <tbody>
-    
+      <tr *ngFor='let cartProduct of cartProducts'>
+       
+       
+            <!-- <img src="{{fileUpload}}" alt="{{fileUpload}}" style="max-width:350px" (load)='getImage(cartProduct.product.productId)'/> -->
+            <!-- <img src="{{fileUpload}}" alt="{{fileUpload}}" style="max-width:350px" /> -->
+          <!-- <img src={{cartProduct.product.imageUrl}} alt={{cartProduct.product.productName}} width="150" height="150"/> -->
+          
+          <!-- <div *ngFor="let file of fileUploads">
+              <app-show-image [fileUpload]='file'></app-show-image>
+          </div> -->
+      
+  
+                  <td *ngFor="let file of fileUploads | async"><img src="{{file}}" alt="moulya" style="max-width:50px" /></td>
+              
+        
+        <td>{{cartProduct.product.productName}} </td>
+        <td>{{cartProduct.product.productPrice}}</td>
+        <td><input type="number" min="1" max="10"  [(ngModel)]='cartProduct.quantity'></td>
+        <td>{{cartProduct.product.productPrice*cartProduct.quantity}}</td>
+        <td>
+                <button class="updateQuant" (click)='updateQuantity(cartProduct)'>Save</button>
+              
+        </td>
+        <td> <button class="deleteProduct" (click)='deleteProduct(cartProduct.product.productId)'>X</button></td>
+
+        
+      </tr> 
+      <tr>
+   
+      </tr>
+     
+      <tr>
+        
+          <td style="text-align: right"  colspan="7" >
+              <sub>** (Shipping charges for shopping below 500)</sub>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+              Shipping Charges: {{shippingCharge}}</td>
+      </tr>
+      <tr>
+          <td style="text-align: right"  colspan="7" > 
+            <b>Total : </b>   {{totalCounts(cartProducts)}}</td>
+
+            
+      </tr>
     </tbody>
     <tfoot>
    
     </tfoot>
   </table>
+  
   <div class="basket-button">
     <button class="checkout" routerLink="../checkout">Checkout Securely Now</button>
   </div>

@@ -5,6 +5,7 @@ import { BagRoutingModule } from './bag-routing.module';
 import { BagPageComponent } from './bag-page/bag-page.component';
 import { UiModule } from '../ui/ui.module';
 import { FormsModule } from '@angular/forms';
+import { DisplayImageComponent } from '../display-image/display-image.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,6 @@ import { FormsModule } from '@angular/forms';
     BagRoutingModule,
     UiModule,
   ],
-  declarations: [BagPageComponent]
+  declarations: [BagPageComponent, DisplayImageComponent]
 })
 export class BagModule { }

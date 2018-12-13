@@ -10,10 +10,10 @@ export class Inventory{
     productCategory:string;
     productPrice:number;
     productDescription:string;
-    brand:string;
+    productBrand:string;
     promo:Promo;
     status:string
     inventoryType:string
     inventoryQuantity:number
-    
+    imageUrl:string
     }

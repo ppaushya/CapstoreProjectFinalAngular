@@ -38,6 +38,8 @@ import { OrderService } from './servicelayer/order/order.service';
 import { BankaccountService } from './servicelayer/bankaccount/bankaccount.service';
 import { CustomerService } from './servicelayer/customer/customer.service';
 import { SignInPageService } from './auth/sign-in-page/sign-in-page.service';
+import { ShowImageComponent } from './bag/show-image/show-image.component';
+
 
 
 export function hammerConfigFactory() {
@@ -68,7 +70,7 @@ export function hammerConfigFactory() {
   ],
   declarations: [
     AppComponent,
-    TrackComponent,
+    TrackComponent
   ],
   providers: [
     DataService,
@@ -77,6 +79,7 @@ export function hammerConfigFactory() {
       provide: HAMMER_GESTURE_CONFIG,
       useFactory: hammerConfigFactory(),
     },
+    CustomerService,
     ProductService,
     ChatService,
     CardService,

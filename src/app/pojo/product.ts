@@ -11,10 +11,11 @@ export class Product{
     promo:Promo;
     productsSold:number
     productView:number;
-    isPromotionMessageSent:boolean;
+   
     productDescription:string;
     quantity:number;
     discount:number;
     brand:string;
-    
+    imageUrl:string;
+    promotionMessageSent:boolean;
     }
