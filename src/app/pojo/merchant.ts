@@ -1,4 +1,5 @@
-import { Address } from "../models/address";
+import { Address } from "./address";
+
 
 export class Merchant{
 

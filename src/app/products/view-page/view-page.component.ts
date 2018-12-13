@@ -26,40 +26,31 @@ export class ViewPageComponent implements OnInit {
   images:ProductImage[];
   sub: any;
 
-  constructor( private route: ActivatedRoute,private productService:ProductService,private sortService:SortService
-              ) {
+  constructor( private route: ActivatedRoute,private productService:ProductService,
+    private sortService:SortService) {
   }
 
   ngOnInit() {
-<<<<<<< HEAD
-
-    // this.route.params.subscribe(params => {
-    //   this.product = this.data.products.find(p => p.id === parseInt(params.id, 10));
-    //   this.recent = this.data.products.slice(0, 4);
-    // });
     this.route.params.subscribe(params => {this.getProduct(params.id);
-     // =====> this.getImages(params.id);     
-=======
-    this.route.params.subscribe(params => {
-      this.getProduct(params.id);
-      this.getImages(params.id);
-     
+     this.getImages(params.id);     
+
+    // this.route.params.subscribe(params => {
+    //   this.getProduct(params.id);
+    //   this.getImages(params.id);
       
->>>>>>> branch 'master' of https://github.com/ppaushya/CapstoreProjectFinalAngular.git
   });
  
   }
+
+
   getImages(productId){
     this.productService.getImages(productId).subscribe(imgs=>this.images=imgs);
     } 
   getSimilarProducts(brand,productCategory){
-<<<<<<< HEAD
-    // =====> this.productService.getSimilarProducts(brand,productCategory).subscribe(pros=>this.recent=pros);
-=======
+  this.productService.getSimilarProducts(brand,productCategory).subscribe(pros=>this.recent=pros);
     this.productService.getSimilarProducts(brand,productCategory).subscribe(pros=>{
       this.recent=pros;
     });
->>>>>>> branch 'master' of https://github.com/ppaushya/CapstoreProjectFinalAngular.git
   }
   getProduct(id:number){
     this.productService.getProduct(id).subscribe(product=>{
