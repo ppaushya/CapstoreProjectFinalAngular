@@ -75,10 +75,6 @@ export class ListPageComponent implements OnInit {
  
     
     private applyFilter(category) {
-      console.log(this.category+"Main hoon");
-
-    //   this.filteredProducts = !this.category? this.products
-    //   : this.products.filter(e =>{ e.productCategory === this.category;console.log(e.productCategory+"hukkb")}); 
     this.productService.getproductswithcategory(this.category).subscribe(Allproducts=>{this.products=Allproducts});
   
     }

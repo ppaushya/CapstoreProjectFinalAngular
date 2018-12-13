@@ -22,8 +22,8 @@ export class CartService {
 
   cartcount():Observable<Cart[]>{
 
-    return this.http.get<Cart[]>(this.sortUrl+'/cartcount');
-    
-    
+      return this.http.get<Cart[]>(this.sortUrl+'/cartcount');
     }
+
+  
 }

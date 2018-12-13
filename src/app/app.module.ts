@@ -40,6 +40,7 @@ import { AppService } from './app.service';
 import { ProductService } from './servicelayer/product/product.service';
 import { ShipmentComponent } from './shipment/shipment.component';
 import { ShowImageComponent } from './bag/show-image/show-image.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 export function hammerConfigFactory() {
   return () => {
@@ -69,7 +70,7 @@ export function hammerConfigFactory() {
   ],
   declarations: [
     AppComponent,
-    TrackComponent
+    TrackComponent,
   ],
   providers: [
     SortService,

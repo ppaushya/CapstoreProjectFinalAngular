@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'payment',
     loadChildren: './payment/payment.module#PaymentModule',
   },
+  {
+    path: 'wishlist',
+    loadChildren: './wishlist/wishlist.module#WishlistModule',
+  },
 ];
 
 @NgModule({

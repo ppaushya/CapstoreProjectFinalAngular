@@ -18,8 +18,7 @@ export class ViewPageComponent implements OnInit {
   color: any;
   productRating: number;
   size: any;
-
-   product: Product=new Product();
+  product: Product=new Product();
   recent: Product[] = [
     
   ];
@@ -33,10 +32,6 @@ export class ViewPageComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {this.getProduct(params.id);
      this.getImages(params.id);     
-
-    // this.route.params.subscribe(params => {
-    //   this.getProduct(params.id);
-    //   this.getImages(params.id);
       
   });
  
@@ -64,4 +59,12 @@ export class ViewPageComponent implements OnInit {
   
      this.sortService.getProductRating(product_Id).subscribe(rating=>{this.productRating=rating;});
     }
+
+    addToCart(){
+      
+
+    }
+
+
+
 }

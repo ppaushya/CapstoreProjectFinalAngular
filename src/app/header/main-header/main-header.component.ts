@@ -5,6 +5,8 @@ import { Cart } from '../../pojo/cart';
 import { SignInPageService } from '../../auth/sign-in-page/sign-in-page.service';
 import { Product } from '../../pojo/product';
 import { ProductService } from '../../servicelayer/product/product.service';
+import { Wishlist } from '../../pojo/wishlist';
+import { WishlistService } from '../../servicelayer/wishlist/wishlist.service';
 
 @Component({
   selector: 'app-main-header',
@@ -20,6 +22,7 @@ export class MainHeaderComponent implements OnInit{
   
   countincart:Cart[];
   isLoggedIn:boolean=true;
+  wishlistcart:Wishlist[];
 
   _listFilter:string;
   products: Product[]=[]
@@ -28,13 +31,15 @@ export class MainHeaderComponent implements OnInit{
   constructor(public el: ElementRef,private _productService: ProductService,
     private route: ActivatedRoute,
     private cartService: CartService,
-    private signinservice: SignInPageService) {
+    private signinservice: SignInPageService,
+    private wishlistservice: WishlistService) {
   }
 
   ngOnInit() {
     this.menuAnchor = this.el.nativeElement;
     
     this.cartService.cartcount().subscribe(cart1=>this.countincart=cart1);
+    this.wishlistservice.wishlistcount().subscribe(cart1=>this.wishlistcart=cart1);
 
   
   }
