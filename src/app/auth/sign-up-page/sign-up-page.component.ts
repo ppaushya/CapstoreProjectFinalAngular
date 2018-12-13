@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer } from '../../models/customer';
-import { Address } from '../../models/address';
+import { Customer } from '../../pojo/customer';
+import { Address } from '../../pojo/address';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -13,7 +13,7 @@ export class SignUpPageComponent implements OnInit {
   confirmPassword:string="";
 
   constructor() { 
-    this.customer.address=new Address();
+    //=new Address();
 
   }
 

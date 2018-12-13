@@ -17,5 +17,5 @@ export class Product{
     discount:number;
     brand:string;
     imageUrl:string;
-    promotionMessageSent:boolean;
+    isPromotionMessageSent:boolean;
     }

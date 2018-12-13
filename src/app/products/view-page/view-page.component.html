@@ -1,22 +1,25 @@
+<div *ngFor="let fg of product">
 <div class="main-wrapper">
   <div class="product-box">
     <div class="product-preview">
-      <ui-photo-carousel [photos]="product.photos"></ui-photo-carousel>
-      <div>
-        <h4>Description</h4>
-        {{product.description}}
-      </div>
+       <!-- <div *ngFor="let photo of images">
+      <ui-photo-carousel [photos]="photo.imageUrl"></ui-photo-carousel>
+    </div>   -->
+    <div *ngFor="let photo of images">
+        <img src={{photo.imageUrl}} height="50px" width="50px"> </div>
+      
+     
       
     </div>
     <div class="product-info">
-      <div class="title"><h3>{{ product.title }}</h3></div>
-      <div class="sub-title">{{ product.description }}</div>
+      <div class="title"><h3>{{ fg.productName }}</h3></div>
+      <div class="sub-title">{{ fg.productDescription }}</div>
       <div class="price-box">
         <div class="price">
-          Rs.{{ product.price }}
+          Rs.{{ fg.productPrice }}
         </div>
         <div class="rating">
-          <ui-rating [value]="3"></ui-rating>
+         avg-rating <ui-rating [value]="productRating"></ui-rating>
         </div>
       </div>
      
@@ -36,10 +39,14 @@
       </div>
     </div>
   </div>
+  <div><h4>Ratings & Reviews:</h4>
+    <app-feedback [product]="fg"></app-feedback> 
+  </div>
   <div class="recently-viewed">
     <h4>Similar products:</h4>
     <div class="list-cards">
       <app-card *ngFor="let product of recent" [product]="product"></app-card>
     </div>
   </div>
+</div>
 </div>

@@ -1,10 +1,10 @@
 import { Component, ElementRef, OnInit, OnDestroy, Input } from '@angular/core';
-import { Product } from '../../data/meta';
-import { ProductService } from './main-header.service';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../../servicelayer/cart/cart.service';
 import { Cart } from '../../pojo/cart';
 import { SignInPageService } from '../../auth/sign-in-page/sign-in-page.service';
+import { Product } from '../../pojo/product';
+import { ProductService } from '../../servicelayer/product/product.service';
 
 @Component({
   selector: 'app-main-header',
@@ -33,7 +33,6 @@ export class MainHeaderComponent implements OnInit{
 
   ngOnInit() {
     this.menuAnchor = this.el.nativeElement;
-    this.products= this._productService.getProducts();
     
     this.cartService.cartcount().subscribe(cart1=>this.countincart=cart1);
 
@@ -41,16 +40,6 @@ export class MainHeaderComponent implements OnInit{
   }
 
 
-
-  get listFilter() :string {
-    return this._listFilter;
-  }
-    set listFilter(value:string) {
-         this._listFilter=value;
-
-            this._productService.performFilter(this.listFilter);
-
-}
 
 login():boolean{
 

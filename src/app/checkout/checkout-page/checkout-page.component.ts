@@ -1,20 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { Address } from "../../pojo/address";
+import { Cart } from "../../pojo/cart";
+import { ShipmentService } from "../../servicelayer/shipment/shipment.service";
+
 
 @Component({
-  selector: 'app-checkout-page',
-  templateUrl: './checkout-page.component.html',
-  styleUrls: ['./checkout-page.component.scss'],
+
+    selector: 'ship-root',
+    templateUrl: './checkout-page.component.html',
+    styleUrls: ['./checkout-page.component.scss']
+
 })
-export class CheckoutPageComponent implements OnInit {
-  inputModel: any;
+export class ShipmentComponent implements OnInit {
 
-  radioModel: any;
 
-  selectModel: any;
+    address: Address = new Address();
 
-  constructor() {
-  }
+    cart: Cart = new Cart();
+    ngOnInit() {
+        console.log("hghgg")
+        this.shipmentservice.getAllAddress().subscribe(AllAddress => this.allAddress = AllAddress)
+      
 
-  ngOnInit() {
-  }
+    }
+    allAddress: Address[] = [];
+
+    constructor(private shipmentservice: ShipmentService) {
+
+
+    }
+
+  
+
+
+    addAddress() {
+
+        this.shipmentservice.createaddress(this.address).subscribe(res=>console.log(res));
+        console.log("added")
+
+    }
+
 }
+
+
+
+
+

@@ -1,6 +1,6 @@
 import { ProductOrder } from "./order";
 import { Address } from "./address";
-import { Product } from "../data/meta";
+import { Product } from "./product";
 
 
 export class IShipment{

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Login } from '../../models/login';
 import { SignInPageService } from './sign-in-page.service';
 import { RouterModule, Router } from '@angular/router';
+import { Login } from '../../pojo/login';
 
 @Component({
   selector: 'app-sign-in-page',

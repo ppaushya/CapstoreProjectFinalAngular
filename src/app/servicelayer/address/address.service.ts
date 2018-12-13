@@ -1,9 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
+import { AppService } from '../../app.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AddressService {
+export class AddressService implements OnInit{
 
-  constructor() { }
+  constructor(private appservice: AppService) { }
+
+  ngOnInit()
+  {
+    this.appservice.getMailId();
+  }
 }

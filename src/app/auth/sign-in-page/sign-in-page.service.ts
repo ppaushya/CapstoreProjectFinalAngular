@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Login } from '../../models/login';
 import { Observable } from 'rxjs';
+import { Login } from '../../pojo/login';
 
 
 const httpOptions={

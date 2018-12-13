@@ -8,5 +8,5 @@ export class Merchant{
     merchantPassword:string
     merchantContact:string;
     merchantAddress:Address;
-    verified:boolean
+    isVerified:boolean
     }

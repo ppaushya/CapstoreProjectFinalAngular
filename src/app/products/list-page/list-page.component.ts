@@ -1,11 +1,13 @@
 import { Component, OnInit, Input} from '@angular/core';
-import { DataService } from '../../data/data.service';
-import { Product } from '../../data/meta';
+
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../../header/main-header/main-header.service';
 import { SortService } from '../sort/sort.service';
 import { Pipe, PipeTransform } from "@angular/core";
-import { MyProduct } from '../../data/product';
+import { Observable } from 'rxjs';
+import { Product } from '../../pojo/product';
+import { Inventory } from '../../pojo/inventory';
+import { Promo } from '../../pojo/promo';
+import { ProductService } from '../../servicelayer/product/product.service';
 
 @Component({
   selector: 'app-list-page',
@@ -19,116 +21,102 @@ export class ListPageComponent implements OnInit {
   products: Product[];
   category: string;
   filteredProducts : Product[];
-  searchedProducts : Product[];
-  searchTerm: string;
+  sortedproducts:Product[];
   sortOption:string;
   sortBy:string='price';
-  sortByType:number=0;
-  sortByOptions = [
-    'price',
-    'price',
-    'sale',
-    'views',
-];
+  min:number;
+  max:number;
+  product: Product[]=[
 
-min:number;
-max:number;
-range:Range[]=[{
-"min":0,
-"max":0
-}];
-sortedproducts:MyProduct[]=[
-{
-"productId": 0,
-"productName": "",
-"inventoryId": 0,
-"productPrice": 0,
-"merchantId": 0,
-"productsSold": 0,
-"productView": 0,
-"productDescription": "",
-"quantity": 0,
-"discount": 0,
-"brand": "",
-"string": ""
-}
-] ; 
+    {
+      "productId": 103,
+      "productName": "Galaxy",
+      "productCategory": "electronics",
+      "inventory": new Inventory,
+      "productPrice": 40000,
+      "promo": new Promo,
+      "productsSold": 20,
+      "productView": 70,
+      "productDescription": "Gud",
+      "quantity": 100,
+      "discount": 1200,
+      "brand": "Samsung",
+      "imageUrl": "C:UsersshivansDownloadsCheckProductsrcmain\resourcesStaticupload-dir",
+      "isPromotionMessageSent": true
+  },
+
+
+
+    
+  ];
+  range:Range[]=[{
+  "min":0,
+  "max":0
+  }];
+
+
  
 
-  constructor(private data: DataService,private sortService:SortService,
-          private route: ActivatedRoute,
-          private _productService: ProductService) {
-            this.products= this._productService.getProducts();
-            this.searchedProducts =this.products;
-            this._productService.getPerformFilter().subscribe(
-              serach => {
-                this.searchTerm = serach['text'];
-                this.searchedProducts =this.searchTerm ? this.performFilter(this.searchTerm):this.products;
-  }
-            );}
+  constructor(private sortService:SortService, 
+              private route: ActivatedRoute, 
+              private productService: ProductService) 
+              {
+                this.applyFilter(this.category);  
+              }
 
-  ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-              this.category = params['category'];
-            });
-    this.products = this.data.products;
-    this.applyFilter();  
-  }
+    ngOnInit() 
+    {
+        this.route.queryParams.subscribe(params => { this.category = params['category'];});
+          this.applyFilter(this.category);  
+    }
+ 
+ 
+   
+ 
+    
+    private applyFilter(category) {
+      console.log(this.category+"Main hoon");
 
-  doSort($event){
-    console.log($event);
-    this.sortByType = $event;
-    this.sortBy = this.sortByOptions[this.sortByType];
-    console.log("sort by "+this.sortBy);
-  }
-
-  private applyFilter() {
-    //this.sortOption=this.sortService.get_sort_option();
-    console.log(this.sortOption);
-    this.filteredProducts = !this.category? this.products
-    : this.products.filter(e => e.category === this.category); 
-  }
-
-
-  performFilter(filterBy:string):any []{
-    filterBy=filterBy.toLocaleLowerCase();
-    return this.products.filter((product:Product)=>
-     product.title.toLocaleLowerCase().indexOf(filterBy)!==-1 ||product.description.toLocaleLowerCase().indexOf(filterBy)!==-1 ||product.category.toLocaleLowerCase().indexOf(filterBy)!==-1);
+    //   this.filteredProducts = !this.category? this.products
+    //   : this.products.filter(e =>{ e.productCategory === this.category;console.log(e.productCategory+"hukkb")}); 
+    this.productService.getproductswithcategory(this.category).subscribe(Allproducts=>{this.products=Allproducts});
   
+    }
 
-   
-   
-      }
- 
+
       lowtohigh():void{
-      this.sortBy="lowtohigh";
-      this.sortService.set_sort_option(this.sortBy);
-      this.sortService.getAscProducts(this.category).subscribe(Allproducts=>{this.sortedproducts=Allproducts});
-     
+          this.sortBy="lowtohigh";
+          this.sortService.set_sort_option(this.sortBy);
+          this.sortService.getAscProducts(this.category).subscribe(Allproducts=>{this.products=Allproducts});
+        
       }
       hightolow():void{
-      this.sortBy="hightolow";
-      this.sortService.set_sort_option(this.sortBy);
-      this.sortService.getDscProducts(this.category).subscribe(Allproducts=>{this.sortedproducts=Allproducts});
-     
+          this.sortBy="hightolow";
+          this.sortService.set_sort_option(this.sortBy);
+          this.sortService.getDscProducts(this.category).subscribe(Allproducts=>{this.products=Allproducts});
+        
       }
       mostViewed():void{
-      this.sortBy="mostViewed";
-      this.sortService.set_sort_option(this.sortBy);
-      this.sortService.getMostViewed(this.category).subscribe(product=>this.sortedproducts=product);
-      
+          this.sortBy="mostViewed";
+          this.sortService.set_sort_option(this.sortBy);
+          this.sortService.getMostViewed(this.category).subscribe(product=>this.products=product);
+          
       }
       bestSellers():void{
-      this.sortBy="bestSellers";
-      this.sortService.set_sort_option(this.sortBy);
-      this.sortService.getbestSellers(this.category).subscribe(product=>this.sortedproducts=product);
-      
+          this.sortBy="bestSellers";
+          this.sortService.set_sort_option(this.sortBy);
+          this.sortService.getbestSellers(this.category).subscribe(product=>this.products=product);
+          
       }
 
       inRange(range:Range):void{
-      this.sortService.inRange(this.category,range.min,range.max).subscribe(product=>this.sortedproducts=product);
-      
+          this.sortService.inRange(this.category,range.min,range.max).subscribe(product=>this.products=product);
+          
       }
+
+
+
+
     }
       
     
