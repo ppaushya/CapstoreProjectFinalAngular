@@ -1,7 +1,7 @@
 <div class="feedback">
   <div *ngFor="let feed of feedbacks" >
 
-    <div> <b>Rating: {{feed.ratingProduct}}</b></div>
+    <div> <b>Rating: {{feed.ratingProduct}}</b> <ui-rating [value]="feed.ratingProduct"></ui-rating></div>
     <div>{{feed.comment}}</div>
   
   </div>

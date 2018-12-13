@@ -13,24 +13,54 @@
               <span>Previous<br> Addresses<br></span>
             </div>
             <fieldset>
-              
+               <table class="table table-hover">
+                <thead>
+                        <tr>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                            
+                              <!-- <td><button  type="button" class="btn btn-info" (click)="openAdd()">Add Address</button> </td> -->
+                              
+                              <td><select name="Address">
+                                    <option *ngFor="let address of allAddress" >
+                                        {{address.addressId}}
+                                        {{address.addressLine1}}
+                                        {{address.addressLine2}}
+                                        {{address.city}}
+                                        {{address.state}}
+                                        {{address.pincode}}
+
+                                    </option>
+                                  </select></td>
+                                 
+                       </tbody>         
+                </table> 
             </fieldset>
           </section>
 
-
-      <section>
+<div >
+      <section >
         <div class="header">
           <strong>2</strong>
           <span>Add New<br>Delivery<br> Address</span>
         </div>
         <fieldset>
+            <div class="field">
+                <div class="container">
+                    <input id="address-Id" name="addressId" type="hidden" 
+                    [(ngModel)]="address.addressId" >
+                </div>
+              </div>
         
           <div class="field">
             <div class="label-wrap">
               <label class="required">Post Code/Zip</label>
             </div>
             <div class="container">
-              <input type="text" [uiInput] [(ngModel)]="inputModel">
+              <input type="text" [uiInput] [(ngModel)]="address.pincode">
             </div>
           </div>
          
@@ -40,7 +70,7 @@
               <label class="required">Address 1</label>
             </div>
             <div class="container">
-              <input type="text" [uiInput] [(ngModel)]="inputModel">
+              <input type="text" [uiInput] [(ngModel)]="address.addressLine1">
             </div>
           </div>
           <div class="field">
@@ -48,7 +78,7 @@
               <label>Address 2</label>
             </div>
             <div class="container">
-              <input type="text" [uiInput] [(ngModel)]="inputModel">
+              <input type="text" [uiInput] [(ngModel)]="address.addressLine2">
             </div>
           </div>
           <div class="field">
@@ -56,7 +86,7 @@
               <label class="required">Town/City</label>
             </div>
             <div class="container">
-              <input type="text" [uiInput] [(ngModel)]="inputModel">
+              <input type="text" [uiInput] [(ngModel)]="address.city">
             </div>
           </div>
           <div class="field">
@@ -64,12 +94,15 @@
               <label>State</label>
             </div>
             <div class="container">
-              <input type="text" [uiInput] [(ngModel)]="inputModel">
+              <input type="text" [uiInput] [(ngModel)]="address.state">
             </div>
           </div>
+          <button type="submit" class="btn btn-success col-sm-offset-4 col-sm-8" name="doTransaction" (click)="addAddress()">Add Address</button>
         </fieldset>
       </section>
-    
+
+    </div>
+  
 
       <div class="submit-button">
         <button class="submit" routerLink="../payment">Submit My Order</button>

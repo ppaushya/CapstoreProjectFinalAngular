@@ -15,8 +15,7 @@ import { Cart } from "../../pojo/cart";
     email :string="virat@gmail.com";
     
      //private _accountsUrl = "./api/account/accounts.json";
-     private _shipmentUrl = "http://localhost:8086/capstore/api/v1/address/";
-     private _cartUrl = "http://localhost:8086/capstore/api/v1/getCartProducts";
+     private _shipmentUrl = "http://10.138.150.215:8083/capstore/api/v1/address/";
   
      constructor(private _http: HttpClient){
   
@@ -27,11 +26,7 @@ import { Cart } from "../../pojo/cart";
        
     }
 
-     getCart(): Observable<Cart>{
-         console.log("Service")
-        return this._http.get<Cart>(this._cartUrl+"/"+'701');
-       
-    }
+    
  
  
   createaddress(address:Address):Observable<Address[]>

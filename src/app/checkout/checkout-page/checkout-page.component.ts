@@ -20,11 +20,7 @@ export class ShipmentComponent implements OnInit {
     ngOnInit() {
         console.log("hghgg")
         this.shipmentservice.getAllAddress().subscribe(AllAddress => this.allAddress = AllAddress)
-        this.shipmentservice.getCart().subscribe(
-            cart => {
-                this.cart = cart;
-                console.log(cart);
-            })
+      
 
     }
     allAddress: Address[] = [];
@@ -34,18 +30,12 @@ export class ShipmentComponent implements OnInit {
 
     }
 
-    isClicked: Boolean = false;
-
-    click1() {
-        console.log(this.isClicked);
-        this.isClicked = !this.isClicked
-    }
+  
 
 
     addAddress() {
 
-        console.log("addaddress")
-        this.shipmentservice.createaddress(this.address).subscribe()
+        this.shipmentservice.createaddress(this.address).subscribe(res=>console.log(res));
         console.log("added")
 
     }
