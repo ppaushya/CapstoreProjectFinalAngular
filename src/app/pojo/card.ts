@@ -1,7 +1,7 @@
 
 export class Card
 {
-    cardNumber:string;
+    cardNumber:number;
 	cardHolderName:string;
 	expiryDate:Date;
 	CVV:number;

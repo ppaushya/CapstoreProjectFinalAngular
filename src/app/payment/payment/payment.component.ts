@@ -1,14 +1,15 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { CreditDebitCard } from './credit-debit-card';
-import { BankAccount } from './bank-account';
+import { Card } from '../../pojo/card';
+import { BankAccount } from '../../pojo/bankaccount';
+import { AppService } from '../../app.service';
 
 @Component({
   selector: 'app-payment',
-  templateUrl: './payment.component2.html',
+  templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
-  card: CreditDebitCard = new CreditDebitCard();
+  card: Card = new Card();
   account: BankAccount = new BankAccount();
 
   cardNumber: string = "";
@@ -21,7 +22,7 @@ export class PaymentComponent implements OnInit {
   // @ViewChild("cardNumber3Control") cardNumber3ControlView: ElementRef;
   // @ViewChild("cardNumber4Control") cardNumber4ControlView: ElementRef;
 
-  constructor() { }
+  constructor(private appService:AppService) { }
 
   ngOnInit() {
   }
@@ -52,5 +53,31 @@ export class PaymentComponent implements OnInit {
 
   setPaymentMethod(type:number): void{
     this.paymentType = type;
+  }
+
+  payAmount(){
+    switch(this.paymentType){
+      case 1:
+      this.appService.payByCard(this.card,this.appService.getProductOrder().orderId).subscribe(
+        success => {
+          console.log(success);
+        }
+      );
+        break;
+      case 2:
+      this.appService.payByBankAccount(this.account,this.appService.getProductOrder().orderId).subscribe(
+        success => {
+          console.log(success);
+        }
+      );
+        break;
+      case 3:
+      this.appService.payByCash(this.appService.getProductOrder().orderId).subscribe(
+        success => {
+          console.log(success);
+        }
+      );
+        break;
+    }
   }
 }

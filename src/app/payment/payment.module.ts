@@ -2,18 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PaymentRoutingModule } from './payment-routing.module';
-import { UiModule } from '../ui/ui.module';
-import { FormsModule } from '@angular/forms';
-import { PaymentComponent } from './payment.component';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
+  declarations: [PaymentComponent],
   imports: [
     CommonModule,
-    PaymentRoutingModule,
-    UiModule,
-    FormsModule,
-  ],
-  declarations: [PaymentComponent],
+    PaymentRoutingModule
+  ]
 })
-export class PaymentModule { 
-}
+export class PaymentModule { }
