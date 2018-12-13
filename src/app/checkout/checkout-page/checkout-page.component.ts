@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Address } from "../../pojo/address";
 import { Cart } from "../../pojo/cart";
-import { ShipmentService } from "../../servicelayer/shipment/shipment.service";
+import { AppService } from "../../app.service";
 
 
 @Component({
@@ -19,13 +19,13 @@ export class ShipmentComponent implements OnInit {
     cart: Cart = new Cart();
     ngOnInit() {
         console.log("hghgg")
-        this.shipmentservice.getAllAddress().subscribe(AllAddress => this.allAddress = AllAddress)
+       // this.shipmentservice.getAllAddress().subscribe(AllAddress => this.allAddress = AllAddress)
       
 
     }
     allAddress: Address[] = [];
 
-    constructor(private shipmentservice: ShipmentService) {
+    constructor(private shipmentservice: AppService) {
 
 
     }
@@ -35,8 +35,8 @@ export class ShipmentComponent implements OnInit {
 
     addAddress() {
 
-        this.shipmentservice.createaddress(this.address).subscribe(res=>console.log(res));
-        window.location.reload();
+        //this.shipmentservice.createaddress(this.address).subscribe(res=>console.log(res));
+        //window.location.reload();
 
     }
 

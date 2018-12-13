@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../pojo/product';
-import { ProductService } from '../../servicelayer/product/product.service';
+import { AppService } from '../../app.service';
 
 @Component({
   selector: 'app-home-page',
@@ -13,7 +13,7 @@ export class HomePageComponent implements OnInit {
   searchTerm: string;
 
   public imagesUrl;
-  constructor(private _productService: ProductService){
+  constructor(private _productService: AppService){
     this.filteredProducts=this.products;
   
    
@@ -67,6 +67,6 @@ export class HomePageComponent implements OnInit {
     this.direction = this.directionToggle ? 'right' : 'left';
   }
 
-
+  
 
 }

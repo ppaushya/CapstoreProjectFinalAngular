@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SignInPageService } from './sign-in-page.service';
 import { RouterModule, Router } from '@angular/router';
 import { Login } from '../../pojo/login';
 
@@ -16,33 +15,8 @@ export class SignInPageComponent implements OnInit {
   validEmail:boolean=false;
 
   @Input() invalid:boolean;
-  constructor(private _service:SignInPageService, private _router:Router) { }
+  constructor(private _router:Router) { }
 
   ngOnInit() {
-
-    
-  }
-
-  validateLogin()
-  {
-    this._service.validateEmail(this.login).subscribe(
-      validLogin=>{
-        this.login=validLogin;
-      if(validLogin.userTypes=="CUSTOMER")
-      {
-        this._router.navigate(['/home'])
-        this.invalid=true;
-        this._service.setauthenticate(true);
-      }
-      else if(validLogin==null)
-      {
-        this._router.navigate(['/sign-in']);
-        this.invalid=true;
-        this.message="Invalid EmailId or Password";
-
-      }
-    
-      }
-    )
   }
 }

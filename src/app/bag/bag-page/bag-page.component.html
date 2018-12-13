@@ -43,9 +43,9 @@
           </div> -->
       
   
-                  <td *ngFor="let file of fileUploads | async"><img src="{{file}}" alt="moulya" style="max-width:50px" /></td>
+        <td *ngFor="let file of fileUploads | async"><img src="{{file}}" alt="moulya" style="max-width:50px" /></td>
               
-        
+        <td>Image</td>
         <td>{{cartProduct.product.productName}} </td>
         <td>{{cartProduct.product.productPrice}}</td>
         <td><input type="number" min="1" max="10"  [(ngModel)]='cartProduct.quantity'></td>

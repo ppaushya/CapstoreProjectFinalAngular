@@ -11,21 +11,10 @@
     </div>
     <!-- <div  align= "center" routerLink="/">Welcome to Online shoping</div>&nbsp;&nbsp; -->
     <div class="account">
-        <label *ngIf="login(); else loggedOut" >
-            <select>
-              <option value="user">Hello!User</option>
-              <option value="profile">My Profile</option>
-              <option value="password">Forgot Password</option>
-            </select>&nbsp;&nbsp;
-            <button [uiButton] routerLink="/home"  value="LogOut" (click)="logout()">Logout</button>
-        </label>
-          
-          <ng-template #loggedOut>
-            <a routerLink="/auth/sign-in" (click)="login()">Login</a>
-          </ng-template>&nbsp;&nbsp;
-      <!-- <a routerLink="/auth/sign-in">
+       
+      <a routerLink="/auth/sign-in">
         <kit-icon [name]="'avatar'" size="25px"></kit-icon>
-      </a> -->
+      </a>
       <a routerLink="/bag">
         <kit-icon [name]="'shopping-cart'" size="25px"></kit-icon>
         <label>{{countincart}}</label>

@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SortService } from './sort.service';
+import { AppService } from '../../app.service';
 
 @Component({
   selector: 'app-sort',
@@ -9,7 +10,7 @@ import { SortService } from './sort.service';
 export class SortComponent implements OnInit {
   selectedOption:number;
   
-  constructor(private sortservice:SortService) { }
+  constructor(private sortservice:AppService) { }
   options = [
     
        'Price:Low to High',

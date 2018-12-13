@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../pojo/product';
-import { CustomerService } from '../../customer.service';
 import { Cart } from '../../pojo/cart';
 import { CartProduct } from '../../pojo/cardproduct';
 import { Observable } from 'rxjs';
+import { AppService } from '../../app.service';
+import { ProductOrder } from '../../pojo/order';
 
 @Component({
   selector: 'app-bag-page',
@@ -21,13 +22,14 @@ export class BagPageComponent implements OnInit {
   fileUploads: Observable<string[]>;
   custId:number=701;
   
+  order: ProductOrder = new ProductOrder();
 
-  constructor(private customerService: CustomerService) {
+  constructor(private appService: AppService) {
     
    }
 
   ngOnInit() {
-    this.customerService.getAllCart(this.custId).subscribe(
+    this.appService.getAllCart(this.custId).subscribe(
         cartProducts=> this.cartProducts=cartProducts
         
         );
@@ -37,16 +39,20 @@ export class BagPageComponent implements OnInit {
   }
   getImage(productId:number)
   {
-    console.log(productId)
-    this.fileUploads = this.customerService.getFiles(productId);
-    console.log(  this.fileUploads )
+    // console.log(productId)
+    // this.fileUploads = this.appService.getFiles(productId);
+    // console.log(  this.fileUploads )
   }
   updateQuantity(cartProduct:CartProduct):void{
-   this.customerService.updateQuantity(cartProduct).subscribe();
+   this.appService.updateQuantity(cartProduct).subscribe();
   }
   deleteProduct(productId:number):void{
    // alert("Are you Sure you want to delete");
-    this.customerService.deleteProduct(productId).subscribe();
+    this.appService.deleteProduct(productId).subscribe(
+      cartProducts => {
+        this.cartProducts = cartProducts;
+      }
+    );
   }
 
   totalCounts(data) {
@@ -68,4 +74,11 @@ export class BagPageComponent implements OnInit {
             return 0;
   }
 
+  // checkAvailability(){
+  //   this.appService.checkAvailability(this.order).subscribe(
+  //     available => {
+  //       console.log(available);
+  //     }
+  //   );
+  // }
 }

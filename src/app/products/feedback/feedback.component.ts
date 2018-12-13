@@ -5,7 +5,7 @@ import { Product } from '../../pojo/product';
 import { FeedBack } from '../../pojo/feedback';
 import { Customer } from '../../pojo/customer';
 import { Merchant } from '../../pojo/merchant';
-import { ProductService } from '../../servicelayer/product/product.service';
+import { AppService } from '../../app.service';
 
 @Component({
   selector: 'app-feedback',
@@ -35,7 +35,7 @@ feedbacks:FeedBack[]=[{
   "merchant": new Merchant,
 }];
 
-  constructor(private productService:ProductService) { }
+  constructor(private productService:AppService) { }
 
   ngOnInit() {
     this.getfeedback();
