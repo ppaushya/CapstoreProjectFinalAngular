@@ -20,6 +20,7 @@ import { ShipmentComponent } from './shipment/shipment.component';
 import { ShowImageComponent } from './bag/show-image/show-image.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { AppService } from './app.service';
+import { InvoiceComponent } from './invoice/invoice.component';
 
 export function hammerConfigFactory() {
   return () => {
@@ -50,6 +51,7 @@ export function hammerConfigFactory() {
   declarations: [
     AppComponent,
     TrackComponent,
+    InvoiceComponent,
   ],
   providers: [
     {
